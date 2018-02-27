@@ -28,10 +28,10 @@ public class UserController {
 
     @RequestMapping(value = "/validate", method= RequestMethod.POST)
     public ResponseEntity<String> validate(@RequestBody UserModel userModel ) {
-        if (userService.isPassword(userModel.getPassword(), userModel.getId())) {
-            return new ResponseEntity<>("{\"message\":\"Logged in successfully.\"}", HttpStatus.OK);
+        if (userService.isPassword(userModel.getPassword(), userModel.getUsername())) {
+            return new ResponseEntity<>("{\"message\":\"Login successful.\"}", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("{\"message\":\"Logged in failed.\"}", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("{\"message\":\"Login failed.\"}", HttpStatus.UNAUTHORIZED);
         }
     }
 

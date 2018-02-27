@@ -22,8 +22,8 @@ public class UserService {
         userRepository.save(userModel);
     }
 
-    public boolean isPassword(String password, Long id) {
-        UserModel userModel = userRepository.findOne(id);
+    public boolean isPassword(String password, String username) {
+        UserModel userModel = userRepository.findByUsername(username).get(0);
         return passwordEncoder.matches(password, userModel.getPassword());
     }
 
