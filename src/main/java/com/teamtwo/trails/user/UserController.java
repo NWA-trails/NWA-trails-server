@@ -1,6 +1,8 @@
 package com.teamtwo.trails.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,10 +21,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method= RequestMethod.POST)
-    public String register( @RequestBody UserModel userModel ) {
-        System.out.println("userModel:controller:___________"+userModel);
+    public ResponseEntity<String> register( @RequestBody UserModel userModel ) {
         userService.register(userModel);
-        return "{\"status\":\"Created successfully.\"}";
+        return new ResponseEntity<>("{\"message\":\"Created user: \""+userModel.getUsername()+"\" successfully.\"}", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/validate", method= RequestMethod.POST)
+    public ResponseEntity<String> validate(@RequestBody UserModel userModel ) {
+        if (userService.isPassword(userModel.getPassword(), userModel.getId())) {
+            return new ResponseEntity<>("{\"message\":\"Logged in successfully.\"}", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("{\"message\":\"Logged in failed.\"}", HttpStatus.UNAUTHORIZED);
+        }
     }
 
     @RequestMapping(value = "/test", method= RequestMethod.POST)

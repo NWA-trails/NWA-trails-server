@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class UserService {
 
@@ -20,6 +22,11 @@ public class UserService {
         userRepository.save(userModel);
     }
 
+    public boolean isPassword(Object password, Long id) {
+        UserModel userModel = userRepository.findOne(id);
+        String stringPassword = (String)((Map)password).get("password");
+        return passwordEncoder.matches(stringPassword, userModel.getPassword());
+    }
 
 
 }
