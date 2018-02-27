@@ -10,6 +10,7 @@ public class UserService {
     UserRepository userRepository;
 
     public void register(UserModel userModel) {
+        System.out.println("userModel: _________________" + userModel);
         userRepository.save(userModel);
     }
 
