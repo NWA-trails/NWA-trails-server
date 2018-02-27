@@ -14,7 +14,9 @@ public class UserService {
     PasswordEncoder passwordEncoder;
 
     public void register(UserModel userModel) {
+        System.out.println("userModel:model:___________"+userModel);
         userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
+        System.out.println("password:model:___________"+userModel.getPassword());
         userRepository.save(userModel);
     }
 
