@@ -1,7 +1,6 @@
 package com.teamtwo.trails.emergencyContact;
 
 
-import com.teamtwo.trails.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +18,7 @@ public class EmergencyContactService {
         return emergencyContactRepository.findAll();
     }
 
-    public void addEmergencyContact(EmergencyContactModel emergencyContactRepository) {
-
-    }
-
-
-
-
+    //public void addEmergencyContact(EmergencyContactModel emergencyContactRepository) {}
 
 }
+

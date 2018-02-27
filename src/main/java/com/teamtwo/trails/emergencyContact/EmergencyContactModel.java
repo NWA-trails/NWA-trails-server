@@ -1,6 +1,5 @@
 package com.teamtwo.trails.emergencyContact;
 
-import com.teamtwo.trails.Constants;
 
 import javax.persistence.*;
 
@@ -24,6 +23,8 @@ public class EmergencyContactModel {
 
     @Column(name = "user_id")
     private long user_id;
+
+    protected EmergencyContactModel(){}
 
     public EmergencyContactModel(long id, String first_name, String last_name, String phone_number, long user_id) {
         this.id = id;
