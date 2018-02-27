@@ -22,10 +22,9 @@ public class UserService {
         userRepository.save(userModel);
     }
 
-    public boolean isPassword(Object password, Long id) {
+    public boolean isPassword(String password, Long id) {
         UserModel userModel = userRepository.findOne(id);
-        String stringPassword = (String)((Map)password).get("password");
-        return passwordEncoder.matches(stringPassword, userModel.getPassword());
+        return passwordEncoder.matches(password, userModel.getPassword());
     }
 
 
