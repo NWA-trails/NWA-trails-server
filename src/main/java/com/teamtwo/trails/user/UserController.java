@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -18,6 +20,11 @@ public class UserController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     String home() {
         return "{\"text\":\"Hello World!\"}";
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public ResponseEntity<List<UserModel>> getAll() {
+        return new ResponseEntity<>(userService.getAll(),HttpStatus.OK);
     }
 
     @RequestMapping(value = "/register", method= RequestMethod.POST)

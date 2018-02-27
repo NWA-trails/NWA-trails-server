@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -15,6 +16,10 @@ public class UserService {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
+    public List<UserModel> getAll() {
+        return userRepository.findAll();
+    }
 
     public void register(UserModel userModel) {
         userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
