@@ -3,7 +3,7 @@ package com.teamtwo.trails.user;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "\"user\"")
 public class UserModel {
 
     @Id
