@@ -1,5 +1,7 @@
 package com.teamtwo.trails.user;
 
+import com.teamtwo.trails.Constants;
+
 import javax.persistence.*;
 
 @Entity
@@ -25,6 +27,9 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
+    private String role;
+
     protected UserModel() {
     }
 
@@ -35,6 +40,7 @@ public class UserModel {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = Constants.ROLE_LIMITED;
     }
 
     @Override
@@ -90,4 +96,11 @@ public class UserModel {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
