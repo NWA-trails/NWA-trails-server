@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     String home() {
         return "{\"text\":\"Hello World!\"}";
     }
@@ -22,6 +22,11 @@ public class UserController {
     public String register( @RequestBody UserModel userModel ) {
         userService.register(userModel);
         return "{\"status\":\"Created successfully.\"}";
+    }
+
+    @RequestMapping(value = "/test", method= RequestMethod.POST)
+    public Object test( @RequestBody Object object ) {
+        return object;
     }
 
 
