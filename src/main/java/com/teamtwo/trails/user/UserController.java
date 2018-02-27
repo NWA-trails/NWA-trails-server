@@ -1,5 +1,6 @@
 package com.teamtwo.trails.user;
 
+import com.teamtwo.trails.wrapper.UpdatePasswordWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +40,15 @@ public class UserController {
             return new ResponseEntity<>("{\"message\":\"Login successful.\"}", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("{\"message\":\"Login failed.\"}", HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+    public ResponseEntity<String> updatePassword(@RequestBody UpdatePasswordWrapper updatePasswordWrapper) {
+        if(userService.updatePassword(updatePasswordWrapper.getUsername(),updatePasswordWrapper.getOldPassword(),updatePasswordWrapper.getNewPassword())) {
+            return new ResponseEntity<>("{\"message\":\"Updated password.\"}", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("{\"message\":\"Failed to update password.\"}", HttpStatus.UNAUTHORIZED);
         }
     }
 

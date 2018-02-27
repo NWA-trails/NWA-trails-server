@@ -32,5 +32,16 @@ public class UserService {
         return passwordEncoder.matches(password, userModel.getPassword());
     }
 
+    public boolean updatePassword(String username, String oldPassword, String newPassword) {
+        UserModel userModel = userRepository.findByUsername(username).get(0);
+        if (passwordEncoder.matches(oldPassword, userModel.getPassword())) {
+            userModel.setPassword(newPassword);
+            userRepository.save(userModel);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
