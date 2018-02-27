@@ -20,6 +20,7 @@ public class UserController {
 
     @RequestMapping(value = "/register", method= RequestMethod.POST)
     public String register( @RequestBody UserModel userModel ) {
+        System.out.println("userModel:controller:___________"+userModel);
         userService.register(userModel);
         return "{\"status\":\"Created successfully.\"}";
     }
