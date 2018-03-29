@@ -23,11 +23,13 @@ public class UserService {
 
     public void register(UserModel userModel) {
         userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
+        userModel.setUsername(userModel.getUsername().toUpperCase());
         userModel.setRole(Constants.ROLE_LIMITED);
         userRepository.save(userModel);
     }
 
     public boolean isPassword(String password, String username) {
+        username = username.toUpperCase();
         UserModel userModel = userRepository.findByUsername(username).get(0);
         return passwordEncoder.matches(password, userModel.getPassword());
     }
