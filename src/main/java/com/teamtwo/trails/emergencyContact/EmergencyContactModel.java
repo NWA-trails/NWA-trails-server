@@ -21,16 +21,20 @@ public class EmergencyContactModel {
     @Column(name = "phone_number")
     private String phone_number;
 
+    @Column(name = "username")
+    private String username;
+
     @Column(name = "user_id")
     private long user_id;
 
     protected EmergencyContactModel(){}
 
-    public EmergencyContactModel(long id, String first_name, String last_name, String phone_number, long user_id) {
+    public EmergencyContactModel(long id, String first_name, String last_name, String phone_number, String username, long user_id) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
+        this.username = username;
         this.user_id = user_id;
     }
 
@@ -46,6 +50,10 @@ public class EmergencyContactModel {
     public long getUserId() {
         return user_id;
     }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) { this.username = username; }
 
     public void setUserId(String username) { this.user_id = user_id; }
 
