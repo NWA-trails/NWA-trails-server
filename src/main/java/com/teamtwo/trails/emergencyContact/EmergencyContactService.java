@@ -18,7 +18,18 @@ public class EmergencyContactService {
         return emergencyContactRepository.findAll();
     }
 
-    //public void addEmergencyContact(EmergencyContactModel emergencyContactRepository) {}
+    public List<EmergencyContactModel> findByUsername(String username) {
+        return emergencyContactRepository.findByUsername(username);
+    }
+
+    public void add(EmergencyContactModel emergencyContactModel) {
+        emergencyContactRepository.save(emergencyContactModel);
+    }
+
+    public void delete(EmergencyContactModel emergencyContactModel){
+        emergencyContactRepository.delete(emergencyContactModel);
+    }
+
 
 }
 

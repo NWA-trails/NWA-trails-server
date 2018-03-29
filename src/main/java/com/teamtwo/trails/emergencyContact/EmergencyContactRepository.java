@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface EmergencyContactRepository extends CrudRepository<EmergencyContactModel, Long> {
     List<EmergencyContactModel> findAll();
+
+    List<EmergencyContactModel> findByUsername(String username);
 }

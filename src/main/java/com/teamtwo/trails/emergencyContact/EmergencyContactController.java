@@ -4,10 +4,7 @@ package com.teamtwo.trails.emergencyContact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,10 +25,22 @@ public class EmergencyContactController {
         return new ResponseEntity<>(emergencyContactService.getAll(),HttpStatus.OK);
     }
 
-        //todo
-//    @RequestMapping(value = "/add", method= RequestMethod.POST)
-//    public ResponseEntity<String> register( @RequestBody EmergencyContactModel emergencyContactModel ) {
-//        //todo
-//    }
+    @RequestMapping(value = "/findByUsername", method = RequestMethod.GET)
+    public ResponseEntity<List<EmergencyContactModel>> findByUsername( @RequestParam String username) {
+        return new ResponseEntity<>(emergencyContactService.findByUsername(username),HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/add", method= RequestMethod.POST)
+    public ResponseEntity<String> add( @RequestBody EmergencyContactModel emergencyContactModel ) {
+        emergencyContactService.add(emergencyContactModel);
+        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getFirst_name()+  " " + emergencyContactModel.getLast_name() +"\" successfully.\"}", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/delete", method= RequestMethod.POST)
+    public ResponseEntity<String> delete( @RequestBody EmergencyContactModel emergencyContactModel ) {
+        emergencyContactService.delete(emergencyContactModel);
+        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getFirst_name()+  " " + emergencyContactModel.getLast_name() +"\" successfully.\"}", HttpStatus.OK);
+    }
 
 }
