@@ -8,4 +8,5 @@ public interface EmergencyContactRepository extends CrudRepository<EmergencyCont
     List<EmergencyContactModel> findAll();
 
     List<EmergencyContactModel> findByUsername(String username);
+
 }

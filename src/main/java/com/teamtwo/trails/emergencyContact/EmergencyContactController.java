@@ -32,9 +32,9 @@ public class EmergencyContactController {
 
 
     @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public ResponseEntity<String> add( @RequestBody EmergencyContactModel emergencyContactModel ) {
+    public ResponseEntity<Long> add( @RequestBody EmergencyContactModel emergencyContactModel ) {
         emergencyContactService.add(emergencyContactModel);
-        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getContactName() +"\" successfully.\"}", HttpStatus.OK);
+        return new ResponseEntity<>(emergencyContactModel.getId(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete", method= RequestMethod.POST)
