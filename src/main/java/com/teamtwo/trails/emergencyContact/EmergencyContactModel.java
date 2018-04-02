@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Table(name = "emergency_contact")
 public class EmergencyContactModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
 
     @Column(name = "contactname")
     private String contactName;
@@ -26,7 +30,8 @@ public class EmergencyContactModel {
 
     protected EmergencyContactModel(){}
 
-    public EmergencyContactModel(String contactName, String primaryPhone, String secondaryPhone, String username) {
+    public EmergencyContactModel(long id, String contactName, String primaryPhone, String secondaryPhone, String username) {
+        this.id = id;
         this.contactName = contactName;
         this.primaryPhone = primaryPhone;
         this.secondaryPhone = secondaryPhone;
@@ -34,6 +39,13 @@ public class EmergencyContactModel {
     }
 
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getUsername() { return username; }
 
