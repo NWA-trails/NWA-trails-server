@@ -24,7 +24,7 @@ public class EmergencyContactModel {
     @Column(name = "username")
     private String username;
 
-   
+
 
     protected EmergencyContactModel(){}
 
@@ -50,6 +50,10 @@ public class EmergencyContactModel {
     public String getUsername() { return username; }
 
     public void setUsername(String username) { this.username = username; }
+
+    public void setPhone_number(String number) { this.phone_number = number;}
+
+    public String getPhone_number() { return phone_number; }
 
 
     public String getFirst_name() {

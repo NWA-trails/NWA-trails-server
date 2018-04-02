@@ -27,7 +27,7 @@ public class EmergencyContactController {
 
     @RequestMapping(value = "/findByUsername", method = RequestMethod.GET)
     public ResponseEntity<List<EmergencyContactModel>> findByUsername( @RequestParam String username) {
-        return new ResponseEntity<>(emergencyContactService.findByUsername(username),HttpStatus.OK);
+        return new ResponseEntity<>(emergencyContactService.findByUsername(username.toUpperCase()),HttpStatus.OK);
     }
 
 
