@@ -8,18 +8,16 @@ import javax.persistence.*;
 @Table(name = "emergency_contact")
 public class EmergencyContactModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
-    @Column(name = "first_name")
-    private String first_name;
+    @Column(name = "contactname")
+    private String contactName;
 
-    @Column(name = "last_name")
-    private String last_name;
 
-    @Column(name = "phone_number")
-    private String phone_number;
+    @Column(name = "primaryphone")
+    private String primaryPhone;
+
+    @Column(name = "secondaryphone")
+    private String secondaryPhone;
 
     @Column(name = "username")
     private String username;
@@ -28,21 +26,11 @@ public class EmergencyContactModel {
 
     protected EmergencyContactModel(){}
 
-    public EmergencyContactModel(long id, String first_name, String last_name, String phone_number, String username) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.phone_number = phone_number;
+    public EmergencyContactModel(String contactName, String primaryPhone, String secondaryPhone, String username) {
+        this.contactName = contactName;
+        this.primaryPhone = primaryPhone;
+        this.secondaryPhone = secondaryPhone;
         this.username = username;
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
 
@@ -51,28 +39,22 @@ public class EmergencyContactModel {
 
     public void setUsername(String username) { this.username = username; }
 
-    public void setPhone_number(String number) { this.phone_number = number;}
+    public String getContactName() { return contactName;}
 
-    public String getPhone_number() { return phone_number; }
+    public void setContactName(String name) { this.contactName = name;}
 
-
-    public String getFirst_name() {
-        return first_name;
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setPrimaryPhone(String primaryPhone) { this.primaryPhone = primaryPhone;}
+
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public void setSecondaryPhone(String secondaryPhone) {
+        this.secondaryPhone = secondaryPhone;
     }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public String getName() { return this.first_name + " " + this.last_name; }
-
 
 }

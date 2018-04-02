@@ -34,13 +34,13 @@ public class EmergencyContactController {
     @RequestMapping(value = "/add", method= RequestMethod.POST)
     public ResponseEntity<String> add( @RequestBody EmergencyContactModel emergencyContactModel ) {
         emergencyContactService.add(emergencyContactModel);
-        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getFirst_name()+  " " + emergencyContactModel.getLast_name() +"\" successfully.\"}", HttpStatus.OK);
+        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getContactName() +"\" successfully.\"}", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete", method= RequestMethod.POST)
     public ResponseEntity<String> delete( @RequestBody EmergencyContactModel emergencyContactModel ) {
         emergencyContactService.delete(emergencyContactModel);
-        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getFirst_name()+  " " + emergencyContactModel.getLast_name() +"\" successfully.\"}", HttpStatus.OK);
+        return new ResponseEntity<>("{\"message\":\"Created emergency contact: \""+emergencyContactModel.getContactName() +"\" successfully.\"}", HttpStatus.OK);
     }
 
 }
