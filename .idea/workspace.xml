@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee5d70c0-8b57-4eab-aa85-6523c95dd5d9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactController.java" afterPath="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java" />
+    <list default="true" id="ee5d70c0-8b57-4eab-aa85-6523c95dd5d9" name="Default" comment="fully replaced user_id to username for fk in emergency contacts">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,22 +66,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmergencyContactController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmergencyContactController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="29" column="97" lean-forward="false" selection-start-line="29" selection-start-column="97" selection-end-line="29" selection-end-column="97" />
+            <state relative-caret-position="630">
+              <caret line="42" column="119" lean-forward="false" selection-start-line="42" selection-start-column="105" selection-end-line="42" selection-end-column="119" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmergencyContactModel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EmergencyContactModel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="198">
+              <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+              <folding>
+                <element signature="e#1058#1059#0" expanded="true" />
+                <element signature="e#1093#1094#0" expanded="true" />
+                <element signature="e#1225#1226#0" expanded="true" />
+                <element signature="e#1262#1263#0" expanded="true" />
+                <element signature="e#1322#1323#0" expanded="true" />
+                <element signature="e#1374#1375#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <caret line="6" column="66" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -131,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/GeoData/GeoDataModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java" />
       </list>
     </option>
   </component>
@@ -142,11 +148,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="958" />
-    <option name="y" value="-4" />
-    <option name="width" value="964" />
-    <option name="height" value="1023" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="960" />
+    <option name="y" value="24" />
+    <option name="width" value="960" />
+    <option name="height" value="993" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -505,7 +511,7 @@
       <workItem from="1522280431632" duration="231000" />
       <workItem from="1522280713840" duration="247000" />
       <workItem from="1522280966756" duration="3444000" />
-      <workItem from="1522685674722" duration="778000" />
+      <workItem from="1522685674722" duration="3593000" />
     </task>
     <task id="LOCAL-00001" summary="Added findByUser to emergencyContact api">
       <created>1522286618982</created>
@@ -528,14 +534,28 @@
       <option name="project" value="LOCAL" />
       <updated>1522287507395</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testing capitalize on server">
+      <created>1522686563493</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1522686563493</updated>
+    </task>
+    <task id="LOCAL-00005" summary="changed emergency contact table and server to match client data">
+      <created>1522691452681</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1522691452681</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18098000" />
+    <option name="totallyTimeSpent" value="20913000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-4" width="1924" height="1023" extended-state="6" />
+    <frame x="960" y="24" width="960" height="993" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -551,7 +571,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31171548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -581,7 +601,9 @@
     <MESSAGE value="Added findByUser to emergencyContact api" />
     <MESSAGE value="Added findByUser to emergencyContact and added username to model" />
     <MESSAGE value="fully replaced user_id to username for fk in emergency contacts" />
-    <option name="LAST_COMMIT_MESSAGE" value="fully replaced user_id to username for fk in emergency contacts" />
+    <MESSAGE value="testing capitalize on server" />
+    <MESSAGE value="changed emergency contact table and server to match client data" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed emergency contact table and server to match client data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -600,7 +622,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -715,7 +744,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -840,22 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/user/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -880,6 +900,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="119" lean-forward="false" selection-start-line="42" selection-start-column="105" selection-end-line="42" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -890,11 +918,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="29" column="97" lean-forward="false" selection-start-line="29" selection-start-column="97" selection-end-line="29" selection-end-column="97" />
+        <state relative-caret-position="72">
+          <caret line="6" column="66" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/teamtwo/trails/emergencyContact/EmergencyContactModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
