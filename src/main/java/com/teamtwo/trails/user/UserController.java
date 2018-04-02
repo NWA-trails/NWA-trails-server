@@ -31,7 +31,7 @@ public class UserController {
     @RequestMapping(value = "/register", method= RequestMethod.POST)
     public ResponseEntity<String> register( @RequestBody UserModel userModel ) {
         userService.register(userModel);
-        return new ResponseEntity<>("{\"message\":\"Created user: \""+userModel.getUsername()+"\" successfully.\"}", HttpStatus.OK);
+        return new ResponseEntity<>("{\"message\":\"Created user "+userModel.getUsername()+" successfully.\"}", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/validate", method= RequestMethod.POST)
