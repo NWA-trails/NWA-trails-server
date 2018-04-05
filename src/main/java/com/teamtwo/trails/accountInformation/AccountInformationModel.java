@@ -13,15 +13,6 @@ public class AccountInformationModel {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "first_name")
-    private String first_name;
-
-    @Column(name = "last_name")
-    private String last_name;
-
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "DOB")
     private String DOB;
 
