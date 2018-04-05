@@ -12,10 +12,8 @@ public class EmergencyContactModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
     @Column(name = "contactname")
     private String contactName;
-
 
     @Column(name = "primaryphone")
     private String primaryPhone;
@@ -25,8 +23,6 @@ public class EmergencyContactModel {
 
     @Column(name = "username")
     private String username;
-
-
 
     protected EmergencyContactModel(){}
 
