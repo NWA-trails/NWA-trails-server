@@ -1,4 +1,4 @@
-package com.teamtwo.trails.accountInfromation;
+package com.teamtwo.trails.accountInformation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;

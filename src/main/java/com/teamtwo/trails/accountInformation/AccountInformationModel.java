@@ -1,4 +1,4 @@
-package com.teamtwo.trails.accountInfromation;
+package com.teamtwo.trails.accountInformation;
 
 import javax.persistence.*;
 
