@@ -52,6 +52,11 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/image", method = RequestMethod.POST)
+    public ResponseEntity<String> updatePassword(@RequestBody String img) {
+        return new ResponseEntity<>("{\"image\":\"" + img + "\"}", HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/test", method= RequestMethod.POST)
     public Object test( @RequestBody Object object ) {
         return object;
