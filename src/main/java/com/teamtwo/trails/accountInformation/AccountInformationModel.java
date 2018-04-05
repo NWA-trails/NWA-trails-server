@@ -13,8 +13,8 @@ public class AccountInformationModel {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "DOB")
-    private String DOB;
+    @Column(name = "dateofbirth")
+    private String dateofbirth;
 
     @Column(name = "height")
     private String height;
