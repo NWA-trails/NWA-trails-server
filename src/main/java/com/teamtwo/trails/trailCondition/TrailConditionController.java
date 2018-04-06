@@ -16,7 +16,7 @@ public class TrailConditionController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     String home() {
-        return "{\"text\":\"E-contacts\"}";
+        return "{\"text\":\"Trail Condition Service\"}";
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
