@@ -17,7 +17,7 @@ public class EmergencyContactController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     String home() {
-        return "{\"text\":\"E-contacts\"}";
+        return "{\"text\":\"Emergency Contact Service\"}";
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)

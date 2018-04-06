@@ -1,12 +1,12 @@
-package com.teamtwo.trails.trailCondition;
-
+package com.teamtwo.trails.pointOfInterest;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 
 @Entity
-@Table(name = "trail_condition")
-public class TrailConditionModel {
+@Table(name = "point_of_interest")
+public class PointOfInterestModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,7 @@ public class TrailConditionModel {
     private Timestamp timestamp;
 
     @Column(name = "image")
-    private Byte[] image;
+    private byte[] image;
 
     @Column(name = "description")
     private String description;
@@ -30,10 +30,13 @@ public class TrailConditionModel {
     @Column(name = "lng")
     private float lng;
 
+    @Column(name = "approved")
+    private boolean approved;
+
     @Column(name = "active")
     private boolean active;
 
-    public TrailConditionModel(long id, String username, Timestamp timestamp, Byte[] image, String description, float lat, float lng, boolean active) {
+    public PointOfInterestModel(long id, String username, Timestamp timestamp, byte[] image, String description, float lat, float lng, boolean approved, boolean active) {
         this.id = id;
         this.username = username;
         this.timestamp = timestamp;
@@ -41,10 +44,11 @@ public class TrailConditionModel {
         this.description = description;
         this.lat = lat;
         this.lng = lng;
+        this.approved = approved;
         this.active = active;
     }
 
-    public TrailConditionModel() {
+    public PointOfInterestModel() {
     }
 
     public long getId() {
@@ -71,11 +75,11 @@ public class TrailConditionModel {
         this.timestamp = timestamp;
     }
 
-    public Byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Byte[] image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -103,6 +107,14 @@ public class TrailConditionModel {
         this.lng = lng;
     }
 
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
     public boolean isActive() {
         return active;
     }
@@ -110,4 +122,8 @@ public class TrailConditionModel {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+
+
+
 }

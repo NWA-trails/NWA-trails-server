@@ -3,7 +3,9 @@ package com.teamtwo.trails.trailCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,7 +20,8 @@ public class TrailConditionService {
     }
 
     public void add(TrailConditionModel trailConditionModel) {
-        trailConditionModel.setTimestamp(ZonedDateTime.now());
+        Date date = new Date();
+        trailConditionModel.setTimestamp(new Timestamp(date.getTime()));
         trailConditionRepository.save(trailConditionModel);
     }
 

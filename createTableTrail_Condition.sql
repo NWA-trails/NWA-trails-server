@@ -2,13 +2,17 @@ CREATE TABLE "trail_condition"
 (
   id bigserial NOT NULL,
   username text references "user"(username),
-  timestamp date NOT NULL,
+  timestamp timestamptz NOT NULL,
   image bytea,
   description text,
-  lat FLOAT,
-  lng FLOAT,
+  lat float,
+  lng float,
+  active boolean,
   CONSTRAINT trail_condition_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
+
+insert into trail_condition(id, username, timestamp)
+values(20, 'BLAZINGDAMON', '2016-11-16 06:43:19.77');
