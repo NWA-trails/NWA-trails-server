@@ -5,6 +5,8 @@ CREATE TABLE "trail_condition"
   timestamp date NOT NULL,
   image bytea,
   description text,
+  lat FLOAT,
+  lng FLOAT,
   CONSTRAINT trail_condition_pkey PRIMARY KEY (id)
 )
 WITH (
