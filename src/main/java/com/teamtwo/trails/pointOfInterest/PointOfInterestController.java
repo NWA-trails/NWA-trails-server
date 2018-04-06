@@ -30,9 +30,9 @@ public class PointOfInterestController {
     }
 
     @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public ResponseEntity<Long> add( @RequestBody PointOfInterestModel PointOfInterestModel ) {
+    public ResponseEntity<String> add( @RequestBody PointOfInterestModel PointOfInterestModel ) {
         pointOfInterestService.add(PointOfInterestModel);
-        return new ResponseEntity<>(PointOfInterestModel.getId(), HttpStatus.OK);
+        return new ResponseEntity<>("{\"id\":\""+String.valueOf(PointOfInterestModel.getId())+"\"}\"", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete", method= RequestMethod.POST)

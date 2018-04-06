@@ -30,9 +30,9 @@ public class TrailConditionController {
     }
 
     @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public ResponseEntity<Long> add( @RequestBody TrailConditionModel TrailConditionModel ) {
+    public ResponseEntity<String> add( @RequestBody TrailConditionModel TrailConditionModel ) {
         trailConditionService.add(TrailConditionModel);
-        return new ResponseEntity<>(TrailConditionModel.getId(), HttpStatus.OK);
+        return new ResponseEntity<>("{\"id\":\""+String.valueOf(TrailConditionModel.getId())+"\"}\"", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete", method= RequestMethod.POST)
