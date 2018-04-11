@@ -10,4 +10,5 @@ public interface TrailConditionNoImage {
     float getLat();
     float getLng();
     boolean getActive();
+    boolean getAcknowledged();
 }
