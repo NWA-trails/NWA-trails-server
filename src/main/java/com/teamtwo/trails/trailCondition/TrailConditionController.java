@@ -20,8 +20,13 @@ public class TrailConditionController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public ResponseEntity<List<TrailConditionNoImage>> getAll() {
+    public ResponseEntity<List<TrailConditionModel>> getAll() {
         return new ResponseEntity<>(trailConditionService.getAll(),HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getActive", method = RequestMethod.GET)
+    public ResponseEntity<List<TrailConditionNoImage>> getActive() {
+        return new ResponseEntity<>(trailConditionService.getActive(true),HttpStatus.OK);
     }
 
     @RequestMapping(value = "/findByUsername", method = RequestMethod.GET)

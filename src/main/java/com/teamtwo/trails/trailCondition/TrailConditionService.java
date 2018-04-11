@@ -13,7 +13,9 @@ public class TrailConditionService {
     @Autowired
     TrailConditionRepository trailConditionRepository;
 
-    public List<TrailConditionNoImage> getAll() { return trailConditionRepository.findAllNoImage(); }
+    public List<TrailConditionModel> getAll() { return trailConditionRepository.findAll(); }
+
+    public List<TrailConditionNoImage> getActive(boolean active) { return trailConditionRepository.findByActive(active); }
 
     public List<TrailConditionModel> findByUsername( String username ) {
         return trailConditionRepository.findByUsername(username);
