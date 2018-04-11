@@ -8,5 +8,5 @@ public interface TrailConditionRepository extends CrudRepository<TrailConditionM
     List<TrailConditionModel> findByUsername(String username);
     List<TrailConditionModel> findAll();
     List<TrailConditionNoImage> findByActive(boolean active);
-    TrailConditionImage findById(long id);
+    List<TrailConditionImage> findById(long id);
 }

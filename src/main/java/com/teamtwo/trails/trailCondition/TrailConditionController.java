@@ -30,8 +30,8 @@ public class TrailConditionController {
     }
 
     @RequestMapping(value = "/getImageById/{id}", method = RequestMethod.GET)
-    public ResponseEntity<String> getImageById(@PathVariable long id) {
-        return new ResponseEntity<>("{\"id\":\""+id+"\"}",HttpStatus.OK);
+    public ResponseEntity<List<TrailConditionImage>> getImageById(@PathVariable long id) {
+        return new ResponseEntity<>(trailConditionService.getImageById(id),HttpStatus.OK);
     }
 
     @RequestMapping(value = "/findByUsername", method = RequestMethod.GET)
