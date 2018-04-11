@@ -29,6 +29,11 @@ public class TrailConditionController {
         return new ResponseEntity<>(trailConditionService.getActive(true),HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/getImageById/{id}", method = RequestMethod.GET)
+    public ResponseEntity<TrailConditionImage> getImageById(@RequestParam long id) {
+        return new ResponseEntity<>(trailConditionService.getImageById(id),HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/findByUsername", method = RequestMethod.GET)
     public ResponseEntity<List<TrailConditionModel>> findByUsername( @RequestParam String username) {
         return new ResponseEntity<>(trailConditionService.findByUsername(username.toUpperCase()),HttpStatus.OK);
