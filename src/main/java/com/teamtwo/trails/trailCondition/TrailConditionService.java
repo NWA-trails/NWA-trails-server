@@ -13,7 +13,7 @@ public class TrailConditionService {
     @Autowired
     TrailConditionRepository trailConditionRepository;
 
-    public List<TrailConditionModel> getAll() { return trailConditionRepository.findAll(); }
+    public List<TrailConditionNoImage> getAll() { return trailConditionRepository.findAllNoImage(); }
 
     public List<TrailConditionModel> findByUsername( String username ) {
         return trailConditionRepository.findByUsername(username);

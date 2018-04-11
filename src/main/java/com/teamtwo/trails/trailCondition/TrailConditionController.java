@@ -20,7 +20,7 @@ public class TrailConditionController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public ResponseEntity<List<TrailConditionModel>> getAll() {
+    public ResponseEntity<List<TrailConditionNoImage>> getAll() {
         return new ResponseEntity<>(trailConditionService.getAll(),HttpStatus.OK);
     }
 

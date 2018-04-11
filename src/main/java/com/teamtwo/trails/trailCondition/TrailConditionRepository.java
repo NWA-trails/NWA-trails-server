@@ -7,5 +7,5 @@ import java.util.List;
 public interface TrailConditionRepository extends CrudRepository<TrailConditionModel, Long>{
     List<TrailConditionModel> findByUsername(String username);
     List<TrailConditionModel> findAll();
-
+    List<TrailConditionNoImage> findAllNoImage();
 }
