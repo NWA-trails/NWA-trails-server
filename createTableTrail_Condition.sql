@@ -8,6 +8,7 @@ CREATE TABLE "trail_condition"
   lat float,
   lng float,
   active boolean,
+  acknowledged boolean,
   CONSTRAINT trail_condition_pkey PRIMARY KEY (id)
 )
 WITH (
