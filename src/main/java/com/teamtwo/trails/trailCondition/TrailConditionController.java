@@ -34,6 +34,18 @@ public class TrailConditionController {
         return new ResponseEntity<>(trailConditionService.getImageById(id),HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/markInactiveById/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<String> markInactiveById(@PathVariable long id) {
+        trailConditionService.markInactiveById(id);
+        return new ResponseEntity<>("{\"message\":\"Marked condition as inactive for id: "+ id +"\"}",HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/markActiveById/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<String> markActiveById(@PathVariable long id) {
+        trailConditionService.markActiveById(id);
+        return new ResponseEntity<>("{\"message\":\"Marked condition as active for id: "+ id +"\"}",HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/findByUsername", method = RequestMethod.GET)
     public ResponseEntity<List<TrailConditionModel>> findByUsername( @RequestParam String username) {
         return new ResponseEntity<>(trailConditionService.findByUsername(username.toUpperCase()),HttpStatus.OK);

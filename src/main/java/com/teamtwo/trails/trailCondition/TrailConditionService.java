@@ -19,6 +19,18 @@ public class TrailConditionService {
 
     public List<TrailConditionImage> getImageById(long id) { return trailConditionRepository.findById(id); }
 
+    public void markInactiveById(long id) {
+        TrailConditionModel condition = trailConditionRepository.getOne(id);
+        condition.setActive(false);
+        trailConditionRepository.save(condition);
+    }
+
+    public void markActiveById(long id) {
+        TrailConditionModel condition = trailConditionRepository.getOne(id);
+        condition.setActive(true);
+        trailConditionRepository.save(condition);
+    }
+
     public List<TrailConditionModel> findByUsername( String username ) {
         return trailConditionRepository.findByUsername(username);
     }
