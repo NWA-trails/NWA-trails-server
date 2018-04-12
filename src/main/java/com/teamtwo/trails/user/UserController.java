@@ -57,7 +57,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method= RequestMethod.POST)
     public ResponseEntity<String> login(@RequestBody UserModel userModel) {
-        System.out.println("Logging in user: " + userModel.getUsername());
+        System.out.println("Logging in user: " + userModel.getUsername() + " with password: " + userModel.getPassword());
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userModel.getUsername(), userModel.getPassword());
 
         try {

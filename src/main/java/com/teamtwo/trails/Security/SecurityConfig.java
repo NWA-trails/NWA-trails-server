@@ -35,9 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/signup").permitAll()
+                .antMatchers("/user/signup").permitAll()
                 .antMatchers("/user/login").permitAll()
-                .antMatchers("/public").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .apply(new JWTConfigurer(this.tokenProvider));
