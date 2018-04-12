@@ -23,11 +23,14 @@ public class AppUserDetailsService implements UserDetailsService {
 
     @Override
     public final UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("In userDetailService looking up the user");
         final UserModel user = this.userService.lookup(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("User '" + username + "' not found.");
         }
+
+        System.out.println("Found user: " + username + " with password: " + user.getPassword());
 
         return User.withUsername(username)
                 .password(user.getPassword())

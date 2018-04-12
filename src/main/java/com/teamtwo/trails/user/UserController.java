@@ -57,12 +57,15 @@ public class UserController {
 
     @RequestMapping(value = "/login", method= RequestMethod.POST)
     public ResponseEntity<String> login(@RequestBody UserModel userModel) {
+        System.out.println("Logging in user: " + userModel.getUsername());
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userModel.getUsername(), userModel.getPassword());
 
         try {
             this.authenticationManager.authenticate(authenticationToken);
+            System.out.println("Successfully logged in user: " + userModel.getUsername());
             return new ResponseEntity<>(this.tokenProvider.createToken(userModel.getUsername()), HttpStatus.OK);
         } catch (AuthenticationException e) {
+            System.out.println("Failed to login in user with error: " + e.getMessage());
             return new ResponseEntity<>("{\"message\":\"Username or Password is invalid\"}", HttpStatus.UNAUTHORIZED);
         }
     }

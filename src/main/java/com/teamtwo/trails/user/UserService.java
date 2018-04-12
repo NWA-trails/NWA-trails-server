@@ -33,6 +33,7 @@ public class UserService {
     }
 
     public UserModel lookup(String username) {
+        System.out.println("Trying to look up user: " + username);
         return userRepository.findByUsername(username).get(0);
     }
 
