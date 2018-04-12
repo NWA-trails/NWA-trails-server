@@ -69,7 +69,7 @@ public class TrailConditionController {
 
     @RequestMapping(value = "/markUnacknowledged/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> markUnacknowledgedById(@PathVariable long id) {
-        trailConditionService.markAcknowledgedById(id);
+        trailConditionService.markUnacknowledgedById(id);
         return new ResponseEntity<>("{\"message\":\"Marked condition as unacknowledged for id: "+ id +"\"}",HttpStatus.OK);
     }
 
