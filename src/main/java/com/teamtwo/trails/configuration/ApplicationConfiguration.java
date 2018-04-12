@@ -21,20 +21,13 @@ public class ApplicationConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
     public String getSecretKey() {
-        return this.secretKey;
+        return "random_key_hello";
     }
 
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
-    }
-
+    @Bean
     public long getTokenValidityInSeconds() {
-        return this.tokenValidityInSeconds;
+        return 2592000;
     }
-
-    public void setTokenValidityInSeconds(long tokenValidityInSeconds) {
-        this.tokenValidityInSeconds = tokenValidityInSeconds;
-    }
-
 }
