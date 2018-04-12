@@ -61,13 +61,13 @@ public class TrailConditionController {
         return new ResponseEntity<>("{\"message\":\"Marked condition as active for id: "+ id +"\"}",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/markAcknowledged/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/markAcknowledgedById/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> markAcknowledgedById(@PathVariable long id) {
         trailConditionService.markAcknowledgedById(id);
         return new ResponseEntity<>("{\"message\":\"Marked condition as acknowledged for id: "+ id +"\"}",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/markUnacknowledged/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/markUnacknowledgedById/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> markUnacknowledgedById(@PathVariable long id) {
         trailConditionService.markUnacknowledgedById(id);
         return new ResponseEntity<>("{\"message\":\"Marked condition as unacknowledged for id: "+ id +"\"}",HttpStatus.OK);
