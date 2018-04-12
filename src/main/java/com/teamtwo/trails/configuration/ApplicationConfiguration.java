@@ -21,9 +21,6 @@ public class ApplicationConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-
-    @Bean
-    @Qualifier("secretKey")
     public String getSecretKey() {
         return this.secretKey;
     }
@@ -32,8 +29,6 @@ public class ApplicationConfiguration {
         this.secretKey = secretKey;
     }
 
-    @Bean
-    @Qualifier("tokenValidity")
     public long getTokenValidityInSeconds() {
         return this.tokenValidityInSeconds;
     }

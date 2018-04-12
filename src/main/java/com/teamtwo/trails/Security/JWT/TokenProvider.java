@@ -22,8 +22,8 @@ public class TokenProvider {
     private final UserDetailsService userService;
 
 
-    public TokenProvider(@Qualifier("secretKey") String secretKey,
-                         @Qualifier("tokenValidity") long tokenValidityInMilliseconds,
+    public TokenProvider(String secretKey,
+                         long tokenValidityInMilliseconds,
                          UserDetailsService userService) {
         this.secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
         this.tokenValidityInMilliseconds = 1000 * tokenValidityInMilliseconds;

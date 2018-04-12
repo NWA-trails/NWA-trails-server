@@ -23,7 +23,7 @@ public class UserController {
     private final UserService userService;
     private final TokenProvider tokenProvider;
     private final AuthenticationManager authenticationManager;
-    
+
     public UserController(UserService userService,
                           TokenProvider tokenProvider,
                           AuthenticationManager authenticationManager) {
