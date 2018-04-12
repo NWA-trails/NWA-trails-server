@@ -61,13 +61,13 @@ public class PointOfInterestController {
         return new ResponseEntity<>("{\"message\":\"Marked point of interest as active for id: "+ id +"\"}",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/markApproved/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/markApprovedById/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> markApprovedById(@PathVariable long id) {
         pointOfInterestService.markApprovedById(id);
         return new ResponseEntity<>("{\"message\":\"Marked point of interest as approved for id: "+ id +"\"}",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/markUnapproved/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/markUnapprovedById/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> markUnapprovedById(@PathVariable long id) {
         pointOfInterestService.markUnapprovedById(id);
         return new ResponseEntity<>("{\"message\":\"Marked point of interest as unapproved for id: "+ id +"\"}",HttpStatus.OK);
