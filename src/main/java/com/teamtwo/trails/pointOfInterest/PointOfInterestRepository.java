@@ -7,7 +7,10 @@ import java.util.List;
 
 @Repository
 public interface PointOfInterestRepository extends CrudRepository<PointOfInterestModel, Long> {
-    List<PointOfInterestModel> findAll();
     List<PointOfInterestModel> findByUsername(String username);
-
+    List<PointOfInterestModel> findAll();
+    PointOfInterestModel getOne(long id);
+    List<PointOfInterestNoImage> findByActive(boolean active);
+    List<PointOfInterestNoImage> findByApproved(boolean approved);
+    List<PointOfInterestImage> findById(long id);
 }

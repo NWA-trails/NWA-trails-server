@@ -28,6 +28,14 @@ public class UserService {
         userRepository.save(userModel);
     }
 
+    public boolean usernameExists(String username) {
+        return userRepository.findByUsername(username).size() > 0;
+    }
+
+    public UserModel lookup(String username) {
+        return userRepository.findByUsername(username).get(0);
+    }
+
     public boolean isPassword(String password, String username) {
         username = username.toUpperCase();
         UserModel userModel = userRepository.findByUsername(username).get(0);
