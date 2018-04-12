@@ -22,11 +22,13 @@ public class ApplicationConfiguration {
     }
 
     @Bean
+    @Qualifier("secret_key")
     public String getSecretKey() {
         return "random_key_hello";
     }
 
     @Bean
+    @Qualifier("token_validity")
     public long getTokenValidityInSeconds() {
         return 2592000;
     }
