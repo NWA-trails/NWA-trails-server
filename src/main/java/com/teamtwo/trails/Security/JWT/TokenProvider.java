@@ -21,6 +21,7 @@ public class TokenProvider {
     private final long tokenValidityInMilliseconds;
     private final UserDetailsService userService;
 
+
     public TokenProvider(@Qualifier("secretKey") String secretKey,
                          @Qualifier("tokenValidity") long tokenValidityInMilliseconds,
                          UserDetailsService userService) {

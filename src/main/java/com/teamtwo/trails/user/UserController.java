@@ -23,8 +23,7 @@ public class UserController {
     private final UserService userService;
     private final TokenProvider tokenProvider;
     private final AuthenticationManager authenticationManager;
-
-    @Autowired
+    
     public UserController(UserService userService,
                           TokenProvider tokenProvider,
                           AuthenticationManager authenticationManager) {
