@@ -27,6 +27,7 @@ public class AppUserDetailsService implements UserDetailsService {
         final UserModel user = this.userService.lookup(username);
 
         if (user == null) {
+            System.out.println("Did not find username: " + username);
             throw new UsernameNotFoundException("User '" + username + "' not found.");
         }
 
