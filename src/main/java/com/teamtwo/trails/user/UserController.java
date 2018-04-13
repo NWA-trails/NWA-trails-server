@@ -19,6 +19,8 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     private final UserService userService;
     private final TokenProvider tokenProvider;
@@ -58,7 +60,7 @@ public class UserController {
     @RequestMapping(value = "/login", method= RequestMethod.POST)
     public ResponseEntity<String> login(@RequestBody UserModel userModel) {
         System.out.println("Logging in user: " + userModel.getUsername() + " with password: " + userModel.getPassword());
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userModel.getUsername(), userModel.getPassword());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userModel.getUsername(), passwordEncoder.encode(userModel.getPassword()));
 
         try {
             this.authenticationManager.authenticate(authenticationToken);
