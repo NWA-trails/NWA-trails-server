@@ -51,6 +51,8 @@ public class TrailConditionService {
 
     public void add(TrailConditionModel trailConditionModel) {
         Date date = new Date();
+        trailConditionModel.setActive(true);
+        trailConditionModel.setUsername(trailConditionModel.getUsername().toUpperCase());
         trailConditionModel.setTimestamp(new Timestamp(date.getTime()));
         trailConditionRepository.save(trailConditionModel);
     }

@@ -80,6 +80,7 @@ public class PointOfInterestController {
 
     @RequestMapping(value = "/add", method= RequestMethod.POST)
     public ResponseEntity<String> add( @RequestBody PointOfInterestModel PointOfInterestModel ) {
+        PointOfInterestModel.setActive(true);
         pointOfInterestService.add(PointOfInterestModel);
         return new ResponseEntity<>("{\"id\":\""+String.valueOf(PointOfInterestModel.getId())+"\"}\"", HttpStatus.OK);
     }

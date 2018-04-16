@@ -50,6 +50,8 @@ public class PointOfInterestService {
 
     public void add(PointOfInterestModel PointOfInterestModel) {
         Date date = new Date();
+        PointOfInterestModel.setActive(true);
+        PointOfInterestModel.setUsername(PointOfInterestModel.getUsername().toUpperCase());
         PointOfInterestModel.setTimestamp(new Timestamp(date.getTime()));
         pointOfInterestRepository.save(PointOfInterestModel);
     }
