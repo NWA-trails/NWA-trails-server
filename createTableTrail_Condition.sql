@@ -9,6 +9,7 @@ CREATE TABLE "trail_condition"
   lng float,
   active boolean,
   acknowledged boolean,
+  trail text,
   CONSTRAINT trail_condition_pkey PRIMARY KEY (id)
 )
 WITH (

@@ -36,7 +36,10 @@ public class TrailConditionModel {
     @Column(name = "acknowledged")
     private boolean acknowledged;
 
-    public TrailConditionModel(long id, String username, Timestamp timestamp, Byte[] image, String description, float lat, float lng, boolean active, boolean acknowledged) {
+    @Column(name = "trail")
+    private String trail;
+
+    public TrailConditionModel(long id, String username, Timestamp timestamp, Byte[] image, String description, float lat, float lng, boolean active, boolean acknowledged, String trail) {
         this.id = id;
         this.username = username;
         this.timestamp = timestamp;
@@ -46,6 +49,7 @@ public class TrailConditionModel {
         this.lng = lng;
         this.active = active;
         this.acknowledged = acknowledged;
+        this.trail = trail;
     }
 
     public TrailConditionModel() {
@@ -106,6 +110,10 @@ public class TrailConditionModel {
     public void setLng(float lng) {
         this.lng = lng;
     }
+
+    public void setTrail(String trail) { this.trail = trail;}
+
+    public String getTrail() {return this.trail;}
 
     public boolean isActive() {
         return active;
