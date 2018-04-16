@@ -80,6 +80,7 @@ public class TrailConditionController {
 
     @RequestMapping(value = "/add", method= RequestMethod.POST)
     public ResponseEntity<String> add( @RequestBody TrailConditionModel TrailConditionModel ) {
+        TrailConditionModel.setActive(true);
         trailConditionService.add(TrailConditionModel);
         return new ResponseEntity<>("{\"id\":\""+String.valueOf(TrailConditionModel.getId())+"\"}\"", HttpStatus.OK);
     }
