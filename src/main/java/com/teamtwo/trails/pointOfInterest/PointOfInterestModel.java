@@ -36,7 +36,10 @@ public class PointOfInterestModel {
     @Column(name = "active")
     private boolean active;
 
-    public PointOfInterestModel(long id, String username, Timestamp timestamp, byte[] image, String description, float lat, float lng, boolean approved, boolean active) {
+    @Column(name = "trail")
+    private String trail;
+
+    public PointOfInterestModel(long id, String username, Timestamp timestamp, byte[] image, String description, float lat, float lng, boolean approved, boolean active, String trail) {
         this.id = id;
         this.username = username;
         this.timestamp = timestamp;
@@ -46,6 +49,7 @@ public class PointOfInterestModel {
         this.lng = lng;
         this.approved = approved;
         this.active = active;
+        this.trail = trail;
     }
 
     public PointOfInterestModel() {

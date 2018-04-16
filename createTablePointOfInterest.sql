@@ -9,6 +9,7 @@ CREATE TABLE "point_of_interest"
   lng float,
   approved boolean,
   active boolean,
+  trail text,
   CONSTRAINT point_of_interest_pkey PRIMARY KEY (id)
 )
 WITH (
