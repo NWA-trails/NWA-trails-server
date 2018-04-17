@@ -9,7 +9,7 @@ public interface TrailConditionRepository extends CrudRepository<TrailConditionM
     List<TrailConditionModel> findByUsername(String username);
     List<TrailConditionModel> findAll();
 
-    @Query("select id, username, timestamp,description,lat,lng,approved,active from point_of_interest")
+    @Query("select point_of_interest.id, point_of_interest.username, point_of_interest.timestamp,point_of_interest.description,point_of_interest.lat,point_of_interest.lng,point_of_interest.approved,point_of_interest.active from point_of_interest")
     List<TrailConditionNoImage> findAllNoImage();
 
     TrailConditionModel getOne(long id);
