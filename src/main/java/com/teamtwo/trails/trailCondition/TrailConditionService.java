@@ -15,6 +15,9 @@ public class TrailConditionService {
 
     public List<TrailConditionModel> getAll() { return trailConditionRepository.findAll(); }
 
+    public List<TrailConditionNoImage> getAllNoImage() { return trailConditionRepository.findAllNoImage(); }
+
+
     public List<TrailConditionNoImage> getByActive(boolean active) { return trailConditionRepository.findByActive(active); }
 
     public List<TrailConditionNoImage> getByAcknowledged(boolean acknowledged) { return trailConditionRepository.findByAcknowledged(acknowledged); }
