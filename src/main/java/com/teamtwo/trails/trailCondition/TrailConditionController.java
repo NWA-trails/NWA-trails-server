@@ -24,12 +24,6 @@ public class TrailConditionController {
         return new ResponseEntity<>(trailConditionService.getAll(),HttpStatus.OK);
     }
 
-    //repositrory function not yet built
-//    @RequestMapping(value = "/getAllNoImage", method = RequestMethod.GET)
-//    public ResponseEntity<List<TrailConditionNoImage>> getAllNoImage() {
-//        return new ResponseEntity<>(trailConditionService.getAllNoImage(),HttpStatus.OK);
-//    }
-
     @RequestMapping(value = "/getAllNoImage", method = RequestMethod.GET)
     public ResponseEntity<List<TrailConditionNoImage>> getAllNoImage() {
         List<TrailConditionNoImage> trailConditionNoImages = trailConditionService.getByActive(true);
