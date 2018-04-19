@@ -24,6 +24,13 @@ public class PointOfInterestController {
         return new ResponseEntity<>(pointOfInterestService.getAll(),HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/getAllNoImage", method = RequestMethod.GET)
+    public ResponseEntity<List<PointOfInterestNoImage>> getAllNoImage() {
+        List<PointOfInterestNoImage> pointOfInterestNoImages = pointOfInterestService.getByActive(true);
+        pointOfInterestNoImages.addAll(pointOfInterestService.getByActive(false));
+        return new ResponseEntity<>(pointOfInterestNoImages, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/getActive", method = RequestMethod.GET)
     public ResponseEntity<List<PointOfInterestNoImage>> getActive() {
         return new ResponseEntity<>(pointOfInterestService.getByActive(true),HttpStatus.OK);

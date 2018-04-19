@@ -11,4 +11,5 @@ public interface PointOfInterestNoImage {
     float getLng();
     boolean getActive();
     boolean getApproved();
+    String getTrail();
 }
