@@ -24,9 +24,10 @@ public class AccountInformationModel {
 
     protected AccountInformationModel(){}
 
-    public AccountInformationModel(long id, String username, String first_name, String last_name, String email, String DOB, String height, String weight) {
+    public AccountInformationModel(long id, String username, String dateofbirth, String height, String weight) {
         this.id = id;
         this.username = username;
+        this.dateofbirth = dateofbirth;
         this.height = height;
         this.weight = weight;
     }
