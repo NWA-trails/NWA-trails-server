@@ -48,6 +48,14 @@ public class AccountInformationModel {
         this.username = username;
     }
 
+    public String getDateofbirth() {
+        return dateofbirth;
+    }
+
+    public void setDateofbirth(String dateofbirth) {
+        this.dateofbirth = dateofbirth;
+    }
+
     public String getHeight() {
         return height;
     }
