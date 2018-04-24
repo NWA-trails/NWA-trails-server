@@ -15,10 +15,8 @@ public class AccountInformationService {
 
     public void updateAccountInformation(AccountInformationModel accountInformationModel) {
         AccountInformationModel accountInfo = this.accountInformationRepository.findByUsername(accountInformationModel.getUsername());
-
-        System.out.println("Account Model ID is: " + accountInformationModel.getId() + " username is: " + accountInformationModel.getUsername());
-        System.out.println("Account Info ID is: " + accountInfo.getId() + " username is: " + accountInfo.getUsername());
-        if (accountInfo.getUsername() != null) {
+        
+        if (accountInfo != null) {
             accountInfo.setDateofbirth(accountInformationModel.getDateofbirth());
             accountInfo.setHeight(accountInformationModel.getHeight());
             accountInfo.setWeight(accountInformationModel.getWeight());
