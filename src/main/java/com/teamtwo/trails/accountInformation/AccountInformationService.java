@@ -16,10 +16,14 @@ public class AccountInformationService {
     public void updateAccountInformation(AccountInformationModel accountInformationModel) {
         AccountInformationModel accountInfo = this.accountInformationRepository.findByUsername(accountInformationModel.getUsername());
 
-        accountInfo.setDateofbirth(accountInformationModel.getDateofbirth());
-        accountInfo.setHeight(accountInformationModel.getHeight());
-        accountInfo.setWeight(accountInformationModel.getWeight());
+        if (accountInfo.getUsername() != null) {
+            accountInfo.setDateofbirth(accountInformationModel.getDateofbirth());
+            accountInfo.setHeight(accountInformationModel.getHeight());
+            accountInfo.setWeight(accountInformationModel.getWeight());
 
-        accountInformationRepository.save(accountInfo);
+            accountInformationRepository.save(accountInfo);
+        } else {
+            accountInformationRepository.save(accountInformationModel);
+        }
     }
 }
