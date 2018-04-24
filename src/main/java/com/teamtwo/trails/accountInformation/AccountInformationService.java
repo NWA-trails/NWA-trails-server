@@ -14,8 +14,8 @@ public class AccountInformationService {
     }
 
     public void updateAccountInformation(AccountInformationModel accountInformationModel) {
-        AccountInformationModel accountInfo = this.accountInformationRepository.findByUsername(accountInformationModel.getUsername());
-        
+        AccountInformationModel accountInfo = this.accountInformationRepository.findByUsername(accountInformationModel.getUsername().toUpperCase());
+
         if (accountInfo != null) {
             accountInfo.setDateofbirth(accountInformationModel.getDateofbirth());
             accountInfo.setHeight(accountInformationModel.getHeight());

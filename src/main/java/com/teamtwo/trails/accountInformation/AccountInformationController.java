@@ -20,7 +20,7 @@ public class AccountInformationController {
 
     @RequestMapping(value = "/getAccountInformation/{username}", method = RequestMethod.GET)
     public ResponseEntity<AccountInformationModel> getAccountInformation(@PathVariable String username) {
-        return new ResponseEntity<>(accountInformationService.getAccountInformation(username), HttpStatus.OK);
+        return new ResponseEntity<>(accountInformationService.getAccountInformation(username.toUpperCase()), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/updateAccountInformation", method = RequestMethod.POST)
