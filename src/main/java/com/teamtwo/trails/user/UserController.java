@@ -4,10 +4,7 @@ import com.teamtwo.trails.wrapper.UpdatePasswordWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,6 +38,11 @@ public class UserController {
         } else {
             return new ResponseEntity<>("{\"message\":\"Login failed.\"}", HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @RequestMapping(value = "/getUserInformation/{username}", method = RequestMethod.GET)
+    public ResponseEntity<UserModel> getUserInformation(@PathVariable String username) {
+        return new ResponseEntity<>(userService.getUserInformation(username), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
