@@ -3,6 +3,7 @@ package com.teamtwo.trails.user;
 import com.teamtwo.trails.Security.JWT.TokenProvider;
 import com.teamtwo.trails.wrapper.UpdatePasswordWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,8 +28,9 @@ public class UserController {
     TokenProvider tokenProvider;
 
     @Autowired
+    @Qualifier("authManager")
     AuthenticationManager authenticationManager;
-    
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.GET)
     public boolean authenticate() {
         /*
