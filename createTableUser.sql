@@ -1,4 +1,4 @@
-CREATE TABLE "user"
+CREATE TABLE "users"
 (
   id bigserial NOT NULL,
   first_name text NOT NULL,

@@ -1,7 +1,7 @@
 CREATE TABLE "trail_condition"
 (
   id bigserial NOT NULL,
-  username text references "user"(username),
+  username text references "users"(username),
   timestamp timestamptz NOT NULL,
   image bytea,
   description text,

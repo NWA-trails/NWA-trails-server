@@ -1,7 +1,7 @@
 CREATE TABLE "activity_history"
 (
   id bigserial NOT NULL,
-  username text references "user"(username),
+  username text references "users"(username),
   timestamp date NOT NULL,
   distance real,
   duration real,
