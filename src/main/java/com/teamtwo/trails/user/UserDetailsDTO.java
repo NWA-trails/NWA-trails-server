@@ -1,5 +1,8 @@
 package com.teamtwo.trails.user;
 
+import javax.persistence.Entity;
+
+@Entity
 public class UserDetailsDTO {
 
     private String username;
