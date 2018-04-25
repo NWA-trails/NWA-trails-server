@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -29,7 +29,20 @@ public class UserService {
     }
 
     public UserDetailsDTO getUserDetails(String username) {
-        UserDetailsDTO userDetails = userRepository.getUserDetails(username);
+        Object[] results = userRepository.getUserDetails(username).get(0);
+
+        UserDetailsDTO userDetails = new UserDetailsDTO();
+        if (results.length > 0) {
+            userDetails.setUsername((String) results[0]);
+            userDetails.setFirst_name((String) results[1]);
+            userDetails.setLast_name((String) results[2]);
+            userDetails.setEmail((String) results[3]);
+            userDetails.setRole((String) results[4]);
+            userDetails.setDateofbirth((String) results[5]);
+            userDetails.setHeight((String) results[6]);
+            userDetails.setWeight((String) results[7]);
+        }
+
         return userDetails;
     }
 

@@ -1,6 +1,7 @@
 package com.teamtwo.trails.user;
 
 import com.teamtwo.trails.Constants;
+import com.teamtwo.trails.accountInformation.AccountInformationModel;
 
 import javax.persistence.*;
 

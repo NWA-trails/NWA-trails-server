@@ -1,7 +1,5 @@
 package com.teamtwo.trails.user;
 
-import javax.persistence.Column;
-
 public class UserDetailsDTO {
 
     private String username;
