@@ -17,7 +17,7 @@ public interface UserRepository extends CrudRepository<UserModel, Long> {
             "ACCOUNT.height, " +
             "ACCOUNT.weight " +
             "FROM \"user\" as USERINFO " +
-            "INNER JOIN account_information as ACCOUNT " +
+            "LEFT JOIN account_information as ACCOUNT " +
             "ON USERINFO.username = ACCOUNT.username " +
             "WHERE USERINFO.username = :username";
 
