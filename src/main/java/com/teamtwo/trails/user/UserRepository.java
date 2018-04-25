@@ -1,4 +1,4 @@
-package com.teamtwo.trails.users;
+package com.teamtwo.trails.user;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +12,6 @@ public interface UserRepository extends CrudRepository<UserModel, Long> {
     List<UserModel> findAll();
 
     @Modifying
-    @Query("Select USERINFO.username, USERINFO.first_name, USERINFO.last_name, USERINFO.email, USERINFO.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM users as USERINFO LEFT JOIN account_information as ACCOUNT ON USERINFO.username = ACCOUNT.username WHERE USERINFO.username = :username")
+    @Query("Select USERINFO.username, USERINFO.first_name, USERINFO.last_name, USERINFO.email, USERINFO.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM UserModel as USERINFO LEFT JOIN account_information as ACCOUNT ON USERINFO.username = ACCOUNT.username WHERE USERINFO.username = :username")
     public UserDetailsDTO getUserDetails(@Param("username") String username);
 }

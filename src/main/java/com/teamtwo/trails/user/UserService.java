@@ -1,4 +1,4 @@
-package com.teamtwo.trails.users;
+package com.teamtwo.trails.user;
 
 import com.teamtwo.trails.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
