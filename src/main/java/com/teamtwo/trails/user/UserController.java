@@ -18,18 +18,21 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    private final UserService userService;
 
-    @Autowired
-    UserService userService;
+    private final TokenProvider tokenProvider;
 
-    @Autowired
-    TokenProvider tokenProvider;
+    private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    @Qualifier("authManager")
-    AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
+
+    public UserController(PasswordEncoder passwordEncoder, UserService userService,
+                          TokenProvider tokenProvider, AuthenticationManager authenticationManager) {
+        this.userService = userService;
+        this.tokenProvider = tokenProvider;
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+    }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.GET)
     public boolean authenticate() {
