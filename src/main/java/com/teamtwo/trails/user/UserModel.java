@@ -9,10 +9,6 @@ import javax.persistence.*;
 @Table(name = "users")
 public class UserModel {
 
-    @OneToOne
-    @JoinColumn(name = "username")
-    AccountInformationModel accountInformationModel;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
