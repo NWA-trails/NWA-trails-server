@@ -3,18 +3,18 @@ package com.teamtwo.trails.user;
 import com.teamtwo.trails.Security.JWT.TokenProvider;
 import com.teamtwo.trails.wrapper.UpdatePasswordWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
 
@@ -26,6 +26,7 @@ public class UserController {
 
     private final AuthenticationManager authenticationManager;
 
+    @Autowired
     public UserController(PasswordEncoder passwordEncoder, UserService userService,
                           TokenProvider tokenProvider, AuthenticationManager authenticationManager) {
         this.userService = userService;
@@ -47,7 +48,7 @@ public class UserController {
     @RequestMapping(value = "/login", method= RequestMethod.POST)
     public ResponseEntity<String> login(@RequestBody UserModel userModel) {
         System.out.println("Logging in user: " + userModel.getUsername() + " with password: " + userModel.getPassword());
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userModel.getUsername().toUpperCase(), passwordEncoder.encode(userModel.getPassword()));
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userModel.getUsername().toUpperCase(), userModel.getPassword());
 
         try {
             this.authenticationManager.authenticate(authenticationToken);
