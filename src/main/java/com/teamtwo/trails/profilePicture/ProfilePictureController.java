@@ -17,6 +17,12 @@ public class ProfilePictureController {
     @Autowired
     ProfilePictureService profilePictureService;
 
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ResponseEntity<String> add(@RequestBody ProfilePictureModel profilePictureModel) {
+        profilePictureService.add(profilePictureModel);
+        return new ResponseEntity<>("{\"message\":\"Created profile picture.\"}", HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/getByUsername", method = RequestMethod.GET)
     public ResponseEntity<List<ProfilePictureModel>> getByUsername(String username) {
         return new ResponseEntity<>(profilePictureService.getByUsername(username), HttpStatus.OK);

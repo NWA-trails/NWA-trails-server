@@ -1,7 +1,5 @@
 package com.teamtwo.trails.profilePicture;
 
-import com.teamtwo.trails.pointOfInterest.PointOfInterestModel;
-import com.teamtwo.trails.pointOfInterest.PointOfInterestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +13,10 @@ public class ProfilePictureService {
 
     public List<ProfilePictureModel> getByUsername(String username) {
         return profilePictureRepository.findByUsername(username);
+    }
+
+    public void add(ProfilePictureModel profilePictureModel) {
+        profilePictureRepository.save(profilePictureModel);
     }
 
     public boolean update(ProfilePictureModel profilePictureModel) {
