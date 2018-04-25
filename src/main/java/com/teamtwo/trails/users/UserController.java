@@ -1,4 +1,4 @@
-package com.teamtwo.trails.user;
+package com.teamtwo.trails.users;
 
 import com.teamtwo.trails.wrapper.UpdatePasswordWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class UserController {
     @RequestMapping(value = "/register", method= RequestMethod.POST)
     public ResponseEntity<String> register( @RequestBody UserModel userModel ) {
         userService.register(userModel);
-        return new ResponseEntity<>("{\"message\":\"Created user "+userModel.getUsername()+" successfully.\"}", HttpStatus.OK);
+        return new ResponseEntity<>("{\"message\":\"Created users "+userModel.getUsername()+" successfully.\"}", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/validate", method= RequestMethod.POST)

@@ -1,6 +1,4 @@
-package com.teamtwo.trails.user;
-
-import javax.persistence.Column;
+package com.teamtwo.trails.users;
 
 public class UserDetailsDTO {
 

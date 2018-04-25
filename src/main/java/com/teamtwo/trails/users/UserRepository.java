@@ -1,4 +1,4 @@
-package com.teamtwo.trails.user;
+package com.teamtwo.trails.users;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

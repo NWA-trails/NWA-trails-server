@@ -1,4 +1,4 @@
-package com.teamtwo.trails.user;
+package com.teamtwo.trails.users;
 
 import com.teamtwo.trails.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {

@@ -1,4 +1,4 @@
-package com.teamtwo.trails.user;
+package com.teamtwo.trails.users;
 
 import com.teamtwo.trails.Constants;
 
