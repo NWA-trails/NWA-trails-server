@@ -31,18 +31,28 @@ public class UserService {
     public UserDetailsDTO getUserDetails(String username) {
         Object[] results = userRepository.getUserDetails(username).get(0);
 
-
         UserDetailsDTO userDetails = new UserDetailsDTO();
-        userDetails.setUsername((String) results[0]);
-        userDetails.setFirst_name((String) results[1]);
-        userDetails.setLast_name((String) results[2]);
-        userDetails.setEmail((String) results[3]);
-        userDetails.setRole((String) results[4]);
-        userDetails.setDateofbirth((String) results[5]);
-        userDetails.setHeight((String) results[6]);
-        userDetails.setWeight((String) results[7]);
+        if (results.length > 0) {
+            userDetails.setUsername((String) results[0]);
+            userDetails.setFirst_name((String) results[1]);
+            userDetails.setLast_name((String) results[2]);
+            userDetails.setEmail((String) results[3]);
+            userDetails.setRole((String) results[4]);
+            userDetails.setDateofbirth((String) results[5]);
+            userDetails.setHeight((String) results[6]);
+            userDetails.setWeight((String) results[7]);
+        }
 
         return userDetails;
+    }
+
+    public boolean usernameExists(String username) {
+        return userRepository.findByUsername(username).size() > 0;
+    }
+
+    public UserModel lookup(String username) {
+        System.out.println("Trying to look up user: " + username);
+        return userRepository.findByUsername(username).get(0);
     }
 
     public boolean isPassword(String password, String username) {
