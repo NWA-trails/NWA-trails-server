@@ -11,6 +11,6 @@ public interface UserRepository extends CrudRepository<UserModel, Long> {
     List<UserModel> findByUsername(String username);
     List<UserModel> findAll();
 
-    @Query(value = "Select USER.username, USER.first_name, USER.last_name, USER.email, USER.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM users as USER LEFT JOIN account_information as ACCOUNT ON USER.username = ACCOUNT.username WHERE USER.username = :username", nativeQuery = true)
+    @Query(value = "Select USERS.username, USERS.first_name, USERS.last_name, USERS.email, USERS.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM users as USERS LEFT JOIN account_information as ACCOUNT ON USERS.username = ACCOUNT.username WHERE USERS.username = :username", nativeQuery = true)
     public UserDetailsDTO getUserDetails(@Param("username") String username);
 }
