@@ -28,7 +28,7 @@ public class UserService {
     }
 
     public UserDetailsDTO getUserDetails(String username) {
-        UserDetailsDTO userDetails = userRepository.getUserDetails(username);
+        UserDetailsDTO userDetails = userRepository.getUserDetails(username).get(0);
         return userDetails;
     }
 
