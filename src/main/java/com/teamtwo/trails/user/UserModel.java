@@ -1,12 +1,17 @@
 package com.teamtwo.trails.user;
 
 import com.teamtwo.trails.Constants;
+import com.teamtwo.trails.accountInformation.AccountInformationModel;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class UserModel {
+
+    @OneToOne
+    @JoinColumn(name = "username")
+    AccountInformationModel accountInformationModel;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
