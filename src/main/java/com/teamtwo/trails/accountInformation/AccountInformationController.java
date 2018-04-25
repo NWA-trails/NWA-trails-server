@@ -18,11 +18,6 @@ public class AccountInformationController {
         return "{\"text\":\"Account Information\"}";
     }
 
-    @RequestMapping(value = "/getAccountInformation/{username}", method = RequestMethod.GET)
-    public ResponseEntity<AccountInformationModel> getAccountInformation(@PathVariable String username) {
-        return new ResponseEntity<>(accountInformationService.getAccountInformation(username.toUpperCase()), HttpStatus.OK);
-    }
-
     @RequestMapping(value = "/updateAccountInformation", method = RequestMethod.POST)
     public void updateAccountInformation(@RequestBody AccountInformationModel accountInformationModel) {
         accountInformationService.updateAccountInformation(accountInformationModel);

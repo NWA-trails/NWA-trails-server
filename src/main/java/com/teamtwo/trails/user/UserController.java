@@ -40,9 +40,9 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/getUserInformation/{username}", method = RequestMethod.GET)
-    public ResponseEntity<UserModel> getUserInformation(@PathVariable String username) {
-        return new ResponseEntity<>(userService.getUserInformation(username), HttpStatus.OK);
+    @RequestMapping(value = "/getUserDetails/{username}", method = RequestMethod.GET)
+    public ResponseEntity<UserDetailsDTO> getUserDetails(@PathVariable String username) {
+        return new ResponseEntity<>(userService.getUserDetails(username.toUpperCase()), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)

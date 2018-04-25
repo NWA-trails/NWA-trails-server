@@ -28,11 +28,9 @@ public class UserService {
         userRepository.save(userModel);
     }
 
-    public UserModel getUserInformation(String username) {
-        username = username.toUpperCase();
-        UserModel userModel = userRepository.findByUsername(username).get(0);
-        userModel.setPassword("");
-        return userModel;
+    public UserDetailsDTO getUserDetails(String username) {
+        UserDetailsDTO userDetails = userRepository.getUserDetails(username);
+        return userDetails;
     }
 
     public boolean isPassword(String password, String username) {
