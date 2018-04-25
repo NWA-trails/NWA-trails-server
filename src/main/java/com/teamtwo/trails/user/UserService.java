@@ -46,15 +46,6 @@ public class UserService {
         return userDetails;
     }
 
-    public boolean usernameExists(String username) {
-        return userRepository.findByUsername(username).size() > 0;
-    }
-
-    public UserModel lookup(String username) {
-        System.out.println("Trying to look up user: " + username);
-        return userRepository.findByUsername(username).get(0);
-    }
-
     public boolean isPassword(String password, String username) {
         username = username.toUpperCase();
         UserModel userModel = userRepository.findByUsername(username).get(0);
