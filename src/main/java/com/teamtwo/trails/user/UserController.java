@@ -17,23 +17,17 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-
-    private final PasswordEncoder passwordEncoder;
-
-    private final UserService userService;
-    private final TokenProvider tokenProvider;
-    private final AuthenticationManager authenticationManager;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(UserService userService,
-                          TokenProvider tokenProvider,
-                          AuthenticationManager authenticationManager,
-                          PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-        this.userService = userService;
-        this.tokenProvider = tokenProvider;
-        this.authenticationManager = authenticationManager;
-    }
+    UserService userService;
+
+    @Autowired
+    TokenProvider tokenProvider;
+
+    @Autowired
+    AuthenticationManager authenticationManager;
     
     @RequestMapping(value = "/authenticate", method = RequestMethod.GET)
     public boolean authenticate() {
