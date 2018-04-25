@@ -25,8 +25,7 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
 
     private final AuthenticationManager authenticationManager;
-
-    @Autowired
+    
     public UserController(PasswordEncoder passwordEncoder, UserService userService,
                           TokenProvider tokenProvider, AuthenticationManager authenticationManager) {
         this.userService = userService;
