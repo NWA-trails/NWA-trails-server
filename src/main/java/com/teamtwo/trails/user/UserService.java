@@ -1,13 +1,11 @@
 package com.teamtwo.trails.user;
 
 import com.teamtwo.trails.Constants;
-import org.hibernate.jpa.internal.EntityManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
@@ -18,9 +16,6 @@ public class UserService {
 
     @Autowired
     PasswordEncoder passwordEncoder;
-
-    @PersistenceContext
-    private EntityManager em;
 
     public List<UserModel> getAll() {
         return userRepository.findAll();
@@ -34,8 +29,18 @@ public class UserService {
     }
 
     public UserDetailsDTO getUserDetails(String username) {
-        List<UserDetailsDTO> userDetailsDTOS = this.em.createNativeQuery("Select USERS.username, USERS.first_name, USERS.last_name, USERS.email, USERS.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM users as USERS LEFT JOIN account_information as ACCOUNT ON USERS.username = ACCOUNT.username WHERE USERS.username = " + username, UserDetailsDTO.class).getResultList();
-        UserDetailsDTO userDetails = userDetailsDTOS.get(0);
+        Object[] results = userRepository.getUserDetails(username).get(0);
+
+        UserDetailsDTO userDetails = new UserDetailsDTO();
+        userDetails.setUsername((String) results[0]);
+        userDetails.setFirst_name((String) results[1]);
+        userDetails.setLast_name((String) results[2]);
+        userDetails.setEmail((String) results[3]);
+        userDetails.setRole((String) results[4]);
+        userDetails.setDateofbirth((String) results[5]);
+        userDetails.setHeight((String) results[6]);
+        userDetails.setWeight((String) results[7]);
+
         return userDetails;
     }
 
