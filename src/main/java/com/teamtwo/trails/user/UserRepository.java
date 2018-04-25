@@ -10,6 +10,6 @@ public interface UserRepository extends CrudRepository<UserModel, Long> {
     List<UserModel> findByUsername(String username);
     List<UserModel> findAll();
 
-    @Query("Select USERINFO.username, USERINFO.first_name, USERINFO.last_name, USERINFO.email, USERINFO.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM \"user\" as USERINFO LEFT JOIN account_information as ACCOUNT ON USERINFO.username = ACCOUNT.username WHERE USERINFO.username = :username;")
+    @Query("Select USERINFO.username, USERINFO.first_name, USERINFO.last_name, USERINFO.email, USERINFO.role, ACCOUNT.dateofbirth, ACCOUNT.height, ACCOUNT.weight FROM \"user\" as USERINFO LEFT JOIN account_information as ACCOUNT ON USERINFO.username = ACCOUNT.username WHERE USERINFO.username = $1;")
     public UserDetailsDTO getUserDetails(@Param("username") String username);
 }
