@@ -31,6 +31,7 @@ public class UserService {
     public UserDetailsDTO getUserDetails(String username) {
         Object[] results = userRepository.getUserDetails(username).get(0);
 
+
         UserDetailsDTO userDetails = new UserDetailsDTO();
         userDetails.setUsername((String) results[0]);
         userDetails.setFirst_name((String) results[1]);
