@@ -12,22 +12,23 @@ public class ProfilePictureService {
     ProfilePictureRepository profilePictureRepository;
 
     public String getByUsername(String username) {
-        return new String(profilePictureRepository.findByUsername(username).get(0).getImage());
+        return new String(profilePictureRepository.findByUsername(username).getImage());
     }
 
     public boolean update(ProfilePictureModel profilePictureModel) {
         System.out.println("Model username: " + profilePictureModel.getUsername() + " image: " + profilePictureModel.getImage());
-        List<ProfilePictureModel> oldProfilePictureModels = profilePictureRepository.findByUsername(profilePictureModel.getUsername());
+        ProfilePictureModel oldProfilePictureModels = profilePictureRepository.findByUsername(profilePictureModel.getUsername());
         ProfilePictureModel profilePicture;
         try {
-            if (oldProfilePictureModels.get(0) != null) {
-                profilePicture = oldProfilePictureModels.get(0);
+            if (oldProfilePictureModels != null) {
+                profilePicture = oldProfilePictureModels;
                 profilePicture.setImage(profilePictureModel.getImage());
                 profilePictureRepository.save(profilePicture);
             } else {
                 profilePictureRepository.save(profilePictureModel);
             }
         } catch(RuntimeException e) {
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
 
