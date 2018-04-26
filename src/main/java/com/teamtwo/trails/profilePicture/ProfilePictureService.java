@@ -36,7 +36,7 @@ public class ProfilePictureService {
             } else {
                 profilePicture = new ProfilePictureModel();
                 profilePicture.setUsername(wrapper.getUsername());
-                profilePicture.setImage(wrapper.getImage().getBytes());
+                profilePicture.setImage(Base64.getEncoder().encode(wrapper.getImage().getBytes()));
 
                 profilePictureRepository.save(profilePicture);
             }
