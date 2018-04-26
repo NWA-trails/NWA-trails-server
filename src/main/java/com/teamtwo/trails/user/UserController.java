@@ -57,6 +57,18 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/makeAdminById/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<String> makeAdminById( @PathVariable long id ) {
+        userService.makeAdminById(id);
+        return new ResponseEntity<>("{\"message\":\"Made user an admin: "+id +" successfully.\"}", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/revokeAdminById/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<String> revokeAdminById( @PathVariable long id ) {
+        userService.revokeAdminById(id);
+        return new ResponseEntity<>("{\"message\":\"Revoked user as admin: "+id +" successfully.\"}", HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/image", method = RequestMethod.POST)
     public ResponseEntity<String> updatePassword(@RequestBody String img) {
         return new ResponseEntity<>("{\"image\":\"" + img + "\"}", HttpStatus.OK);
