@@ -15,17 +15,21 @@ public class ProfilePictureService {
         return new String(profilePictureRepository.findByUsername(username).getImage());
     }
 
-    public boolean update(ProfilePictureModel profilePictureModel) {
-        System.out.println("Model username: " + profilePictureModel.getUsername() + " image: " + profilePictureModel.getImage());
-        ProfilePictureModel oldProfilePictureModels = profilePictureRepository.findByUsername(profilePictureModel.getUsername());
+    public boolean update(ProfilePictureDTO profilePictureDTO) {
+        System.out.println("Model username: " + profilePictureDTO.getUsername() + " image: " + profilePictureDTO.getImage());
+        ProfilePictureModel oldProfilePictureModels = profilePictureRepository.findByUsername(profilePictureDTO.getUsername());
         ProfilePictureModel profilePicture;
         try {
             if (oldProfilePictureModels != null) {
                 profilePicture = oldProfilePictureModels;
-                profilePicture.setImage(profilePictureModel.getImage());
+                profilePicture.setImage(profilePictureDTO.getImage().getBytes());
                 profilePictureRepository.save(profilePicture);
             } else {
-                profilePictureRepository.save(profilePictureModel);
+                profilePicture = new ProfilePictureModel();
+                profilePicture.setUsername(profilePictureDTO.getUsername());
+                profilePicture.setImage(profilePictureDTO.getImage().getBytes());
+
+                profilePictureRepository.save(profilePicture);
             }
         } catch(RuntimeException e) {
             System.out.println("Error: " + e.getMessage());
