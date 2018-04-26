@@ -1,8 +1,10 @@
 package com.teamtwo.trails.trailCondition;
 
+import com.teamtwo.trails.wrapper.TrailConditionStringWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.time.ZonedDateTime;
 import java.util.Date;
@@ -57,6 +59,25 @@ public class TrailConditionService {
         Date date = new Date();
         trailConditionModel.setActive(true);
         trailConditionModel.setUsername(trailConditionModel.getUsername().toUpperCase());
+        trailConditionModel.setTimestamp(new Timestamp(date.getTime()));
+        trailConditionRepository.save(trailConditionModel);
+    }
+
+    public void addWithStringImage(TrailConditionStringWrapper trailConditionStringWrapper) {
+        TrailConditionModel trailConditionModel = new TrailConditionModel();
+        trailConditionModel.setDescription(trailConditionStringWrapper.getDescription());
+        trailConditionModel.setLat(trailConditionStringWrapper.getLat());
+        trailConditionModel.setLng(trailConditionStringWrapper.getLng());
+        byte[] bytes = trailConditionStringWrapper.getImage().getBytes(StandardCharsets.UTF_8);
+        Byte[] image = new Byte[bytes.length];
+        int i = 0;
+        for(byte b: bytes)
+            image[i++] = b;
+        trailConditionModel.setImage(image);
+        trailConditionModel.setActive(true);
+        trailConditionModel.setAcknowledged(false);
+        trailConditionModel.setUsername(trailConditionStringWrapper.getUsername().toUpperCase());
+        Date date = new Date();
         trailConditionModel.setTimestamp(new Timestamp(date.getTime()));
         trailConditionRepository.save(trailConditionModel);
     }

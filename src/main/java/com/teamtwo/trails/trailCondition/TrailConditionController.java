@@ -1,5 +1,6 @@
 package com.teamtwo.trails.trailCondition;
 
+import com.teamtwo.trails.wrapper.TrailConditionStringWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -89,6 +90,12 @@ public class TrailConditionController {
     public ResponseEntity<String> add( @RequestBody TrailConditionModel TrailConditionModel ) {
         trailConditionService.add(TrailConditionModel);
         return new ResponseEntity<>("{\"id\":\""+String.valueOf(TrailConditionModel.getId())+"\"}\"", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/addPreConversion", method= RequestMethod.POST)
+    public ResponseEntity<String> add( @RequestBody TrailConditionStringWrapper trailConditionStringWrapper ) {
+        trailConditionService.addWithStringImage(trailConditionStringWrapper);
+        return new ResponseEntity<>("{\"id\":\""+String.valueOf(trailConditionStringWrapper.getId())+"\"}\"", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete", method= RequestMethod.POST)
