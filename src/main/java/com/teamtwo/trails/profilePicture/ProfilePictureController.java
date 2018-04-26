@@ -17,7 +17,7 @@ public class ProfilePictureController {
 
     @RequestMapping(value = "/get/{username}", method = RequestMethod.GET)
     public ResponseEntity<String> getByUsername(@PathVariable String username) {
-        return new ResponseEntity<>(profilePictureService.getByUsername(username).toUpperCase(), HttpStatus.OK);
+        return new ResponseEntity<>(profilePictureService.getByUsername(username.toUpperCase()), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
