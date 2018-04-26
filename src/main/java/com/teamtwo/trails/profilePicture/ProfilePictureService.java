@@ -16,6 +16,7 @@ public class ProfilePictureService {
     }
 
     public boolean update(ProfilePictureModel profilePictureModel) {
+        System.out.println("Model username: " + profilePictureModel.getUsername() + " image: " + profilePictureModel.getImage());
         List<ProfilePictureModel> oldProfilePictureModels = profilePictureRepository.findByUsername(profilePictureModel.getUsername());
         ProfilePictureModel profilePicture;
         try {
