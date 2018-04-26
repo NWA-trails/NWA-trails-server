@@ -20,8 +20,8 @@ public class ProfilePictureController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public ResponseEntity<String> update(@RequestBody ProfilePictureModel profilePictureModel) {
-        if (profilePictureService.update(profilePictureModel))
+    public ResponseEntity<String> update(@RequestBody ProfilePictureDTO profilePictureDTO) {
+        if (profilePictureService.update(profilePictureDTO))
             return new ResponseEntity<>("{\"message\":\"Updated profile picture.\"}", HttpStatus.OK);
         else
             return new ResponseEntity<>("{\"message\":\"Failed to update profile picture.\"}", HttpStatus.OK);
