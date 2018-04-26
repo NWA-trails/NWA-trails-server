@@ -67,8 +67,8 @@ public class UserController {
         return object;
     }
 
-    @RequestMapping(value = "/deleteById", method= RequestMethod.PUT)
-    public ResponseEntity<String> deleteById( @RequestParam long id ) {
+    @RequestMapping(value = "/deleteById/{id}", method= RequestMethod.PUT)
+    public ResponseEntity<String> deleteById( @PathVariable long id ) {
         userService.delete(id);
         return new ResponseEntity<>("{\"message\":\"Deleted user: "+id +" successfully.\"}", HttpStatus.OK);
     }
