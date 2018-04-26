@@ -93,15 +93,14 @@ public class TrailConditionController {
     }
 
     @RequestMapping(value = "/addPreConversion", method= RequestMethod.POST)
-    public ResponseEntity<String> add( @RequestBody TrailConditionStringWrapper trailConditionStringWrapper ) {
+    public ResponseEntity<String> addPreConversion( @RequestBody TrailConditionStringWrapper trailConditionStringWrapper ) {
         trailConditionService.addWithStringImage(trailConditionStringWrapper);
         return new ResponseEntity<>("{\"id\":\""+String.valueOf(trailConditionStringWrapper.getId())+"\"}\"", HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete", method= RequestMethod.POST)
-    public ResponseEntity<String> delete( @RequestBody TrailConditionModel TrailConditionModel ) {
-        trailConditionService.delete(TrailConditionModel);
-        return new ResponseEntity<>("{\"message\":\"Submitted trail condition: "+TrailConditionModel.getDescription() +" successfully.\"}", HttpStatus.OK);
+    @RequestMapping(value = "/deleteById", method= RequestMethod.PUT)
+    public ResponseEntity<String> deleteById( @RequestParam long id ) {
+        trailConditionService.delete(id);
+        return new ResponseEntity<>("{\"message\":\"Deleted trail condition: "+id +" successfully.\"}", HttpStatus.OK);
     }
-
 }

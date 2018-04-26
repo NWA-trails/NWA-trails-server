@@ -82,7 +82,7 @@ public class TrailConditionService {
         trailConditionRepository.save(trailConditionModel);
     }
 
-    public void delete(TrailConditionModel trailConditionModel) {
-        trailConditionRepository.delete(trailConditionModel);
+    public void delete(long id) {
+        trailConditionRepository.delete(id);
     }
 }

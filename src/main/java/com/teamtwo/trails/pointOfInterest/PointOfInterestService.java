@@ -56,7 +56,7 @@ public class PointOfInterestService {
         pointOfInterestRepository.save(PointOfInterestModel);
     }
 
-    public void delete(PointOfInterestModel PointOfInterestModel) {
-        pointOfInterestRepository.delete(PointOfInterestModel);
+    public void delete(long id) {
+        pointOfInterestRepository.delete(id);
     }
 }
