@@ -1,5 +1,6 @@
 package com.teamtwo.trails.profilePicture;
 
+import com.teamtwo.trails.wrapper.ProfilePictureStringWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +16,19 @@ public class ProfilePictureService {
         return new String(profilePictureRepository.findByUsername(username).getImage());
     }
 
-    public boolean update(ProfilePictureDTO profilePictureDTO) {
-        System.out.println("Model username: " + profilePictureDTO.getUsername() + " image: " + profilePictureDTO.getImage());
-        ProfilePictureModel oldProfilePictureModels = profilePictureRepository.findByUsername(profilePictureDTO.getUsername());
+    public boolean update(ProfilePictureStringWrapper wrapper) {
+        System.out.println("Model username: " + wrapper.getUsername() + " image: " + wrapper.getImage());
+        ProfilePictureModel oldProfilePictureModels = profilePictureRepository.findByUsername(wrapper.getUsername());
         ProfilePictureModel profilePicture;
         try {
             if (oldProfilePictureModels != null) {
                 profilePicture = oldProfilePictureModels;
-                profilePicture.setImage(profilePictureDTO.getImage().getBytes());
+                profilePicture.setImage(wrapper.getImage().getBytes());
                 profilePictureRepository.save(profilePicture);
             } else {
                 profilePicture = new ProfilePictureModel();
-                profilePicture.setUsername(profilePictureDTO.getUsername());
-                profilePicture.setImage(profilePictureDTO.getImage().getBytes());
+                profilePicture.setUsername(wrapper.getUsername());
+                profilePicture.setImage(wrapper.getImage().getBytes());
 
                 profilePictureRepository.save(profilePicture);
             }
