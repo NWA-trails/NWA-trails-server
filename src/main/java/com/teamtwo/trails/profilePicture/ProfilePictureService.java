@@ -31,7 +31,7 @@ public class ProfilePictureService {
         try {
             if (oldProfilePictureModels != null) {
                 profilePicture = oldProfilePictureModels;
-                profilePicture.setImage(wrapper.getImage().getBytes());
+                profilePicture.setImage(Base64.getEncoder().encode(wrapper.getImage().getBytes()));
                 profilePictureRepository.save(profilePicture);
             } else {
                 profilePicture = new ProfilePictureModel();
