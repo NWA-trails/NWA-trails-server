@@ -16,7 +16,8 @@ public class ProfilePictureService {
         ProfilePictureModel profilePicture = profilePictureRepository.findByUsername(username);
 
         if (profilePicture != null) {
-            return new String("{\"image\": \"" + profilePicture.getImage() + "\"}");
+            String image = new String(profilePicture.getImage());
+            return new String("{\"image\": \"" + image + "\"}");
         } else {
             return "{\"image\": \"\"}";
         }
