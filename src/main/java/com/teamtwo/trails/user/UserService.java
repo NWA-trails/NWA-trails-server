@@ -70,11 +70,13 @@ public class UserService {
     public void makeAdminById(long id) {
         UserModel userModel = userRepository.getOne(id);
         userModel.setRole(Constants.ROLE_ADMIN);
+        userRepository.save(userModel);
     }
 
     public void revokeAdminById(long id) {
         UserModel userModel = userRepository.getOne(id);
         userModel.setRole(Constants.ROLE_LIMITED);
+        userRepository.save(userModel);
     }
 
 }
