@@ -67,5 +67,14 @@ public class UserService {
         userRepository.delete(id);
     }
 
+    public void makeAdminById(long id) {
+        UserModel userModel = userRepository.getOne(id);
+        userModel.setRole(Constants.ROLE_ADMIN);
+    }
+
+    public void revokeAdminById(long id) {
+        UserModel userModel = userRepository.getOne(id);
+        userModel.setRole(Constants.ROLE_LIMITED);
+    }
 
 }
