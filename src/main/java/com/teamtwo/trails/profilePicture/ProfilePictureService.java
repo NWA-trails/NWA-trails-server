@@ -13,7 +13,13 @@ public class ProfilePictureService {
     ProfilePictureRepository profilePictureRepository;
 
     public String getByUsername(String username) {
-        return new String(profilePictureRepository.findByUsername(username).getImage());
+        ProfilePictureModel profilePicture = profilePictureRepository.findByUsername(username);
+
+        if (profilePicture != null) {
+            return new String(profilePicture.getImage());
+        } else {
+            return "";
+        }
     }
 
     public boolean update(ProfilePictureStringWrapper wrapper) {
