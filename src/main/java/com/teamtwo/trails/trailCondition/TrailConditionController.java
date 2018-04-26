@@ -98,8 +98,8 @@ public class TrailConditionController {
         return new ResponseEntity<>("{\"id\":\""+String.valueOf(trailConditionStringWrapper.getId())+"\"}\"", HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/deleteById", method= RequestMethod.PUT)
-    public ResponseEntity<String> deleteById( @RequestParam long id ) {
+    @RequestMapping(value = "/deleteById/{id}", method= RequestMethod.PUT)
+    public ResponseEntity<String> deleteById( @PathVariable long id ) {
         trailConditionService.delete(id);
         return new ResponseEntity<>("{\"message\":\"Deleted trail condition: "+id +" successfully.\"}", HttpStatus.OK);
     }

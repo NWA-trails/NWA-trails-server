@@ -92,8 +92,8 @@ public class PointOfInterestController {
         return new ResponseEntity<>("{\"id\":\""+String.valueOf(PointOfInterestModel.getId())+"\"}\"", HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/deleteById", method= RequestMethod.PUT)
-    public ResponseEntity<String> deleteById( @RequestParam long id ) {
+    @RequestMapping(value = "/deleteById/{id}", method= RequestMethod.PUT)
+    public ResponseEntity<String> deleteById( @PathVariable long id ) {
         pointOfInterestService.delete(id);
         return new ResponseEntity<>("{\"message\":\"Deleted point of interest: "+id +" successfully.\"}", HttpStatus.OK);
     }
