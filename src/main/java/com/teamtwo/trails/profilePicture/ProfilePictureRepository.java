@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface ProfilePictureRepository extends CrudRepository<ProfilePictureModel, Long>{
-    List<ProfilePictureModel> findByUsername(String username);
+    ProfilePictureModel findByUsername(String username);
 }
