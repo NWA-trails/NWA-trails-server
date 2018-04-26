@@ -15,9 +15,9 @@ public class ProfilePictureController {
     @Autowired
     ProfilePictureService profilePictureService;
 
-    @RequestMapping(value = "/getProfilePicture/{username}", method = RequestMethod.GET)
+    @RequestMapping(value = "/get/{username}", method = RequestMethod.GET)
     public ResponseEntity<String> getByUsername(@PathVariable String username) {
-        return new ResponseEntity<>(profilePictureService.getByUsername(username), HttpStatus.OK);
+        return new ResponseEntity<>(profilePictureService.getByUsername(username.toUpperCase()), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)

@@ -4,6 +4,7 @@ import com.teamtwo.trails.wrapper.ProfilePictureStringWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -13,7 +14,14 @@ public class ProfilePictureService {
     ProfilePictureRepository profilePictureRepository;
 
     public String getByUsername(String username) {
-        return new String(profilePictureRepository.findByUsername(username).getImage());
+        ProfilePictureModel profilePicture = profilePictureRepository.findByUsername(username);
+
+        if (profilePicture != null) {
+            String image = new String(Base64.getDecoder().decode(profilePicture.getImage()));
+            return new String("{\"image\": \"" + image + "\"}");
+        } else {
+            return "{\"image\": \"\"}";
+        }
     }
 
     public boolean update(ProfilePictureStringWrapper wrapper) {
@@ -23,12 +31,12 @@ public class ProfilePictureService {
         try {
             if (oldProfilePictureModels != null) {
                 profilePicture = oldProfilePictureModels;
-                profilePicture.setImage(wrapper.getImage().getBytes());
+                profilePicture.setImage(Base64.getEncoder().encode(wrapper.getImage().getBytes()));
                 profilePictureRepository.save(profilePicture);
             } else {
                 profilePicture = new ProfilePictureModel();
                 profilePicture.setUsername(wrapper.getUsername());
-                profilePicture.setImage(wrapper.getImage().getBytes());
+                profilePicture.setImage(Base64.getEncoder().encode(wrapper.getImage().getBytes()));
 
                 profilePictureRepository.save(profilePicture);
             }

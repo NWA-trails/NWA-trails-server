@@ -127,7 +127,13 @@ public class PointOfInterestModel {
         this.active = active;
     }
 
+    public String getTrail() {
+        return trail;
+    }
 
+    public void setTrail(String trail) {
+        this.trail = trail;
+    }
 
 
 }
