@@ -46,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/makeAdminById").hasRole("ADMIN")
                 .antMatchers("/user/revokeAdminById").hasRole("ADMIN")
                 .antMatchers("/user/deleteById").hasRole("ADMIN")
+                .antMatchers().authenticated()
                     .and()
                 .apply(new JWTConfigurer(this.tokenProvider));
 
