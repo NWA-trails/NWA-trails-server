@@ -52,7 +52,7 @@ public class UserController {
 
         try {
             this.authenticationManager.authenticate(authenticationToken);
-            System.out.println("Successfully authenticated user: " user.getUsername().toUpperCase());
+            System.out.println("Successfully authenticated user: " + user.getUsername().toUpperCase());
             return this.tokenProvider.createToken(user.getUsername());
         } catch (AuthenticationException e) {
             System.out.println("Security Exception when trying to login user: " + user.getUsername().toUpperCase() + " with message: " + e);
