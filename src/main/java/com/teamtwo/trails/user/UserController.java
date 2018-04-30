@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String authorize(@RequestBody UserModel user, HttpServletResponse response) {
+    public String authorize(@RequestBody UserModel user) {
         System.out.println("In user controller login, trying to authenticate user: " + user.getUsername().toUpperCase());
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername().toUpperCase(), user.getPassword());
 
@@ -56,7 +56,6 @@ public class UserController {
             return this.tokenProvider.createToken(user.getUsername());
         } catch (AuthenticationException e) {
             System.out.println("Security Exception when trying to login user: " + user.getUsername().toUpperCase() + " with message: " + e);
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return null;
         }
     }
