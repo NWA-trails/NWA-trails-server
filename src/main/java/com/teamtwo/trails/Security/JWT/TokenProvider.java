@@ -1,12 +1,12 @@
 package com.teamtwo.trails.Security.JWT;
 
-import com.teamtwo.trails.Security.UserDetailService;
 import com.teamtwo.trails.configuration.AppConfig;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import java.util.Base64;
@@ -18,9 +18,9 @@ public class TokenProvider {
 
     private final String secretKey;
     private final long tokenValidityInMilliseconds;
-    private final UserDetailService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
-    public TokenProvider(AppConfig config, UserDetailService userDetailsService) {
+    public TokenProvider(AppConfig config, UserDetailsService userDetailsService) {
         this.secretKey = Base64.getEncoder().encodeToString(config.getSecret().getBytes());
         this.tokenValidityInMilliseconds = 1000 * config.getTokenValidityInSeconds();
         this.userDetailsService = userDetailsService;
