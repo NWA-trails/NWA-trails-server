@@ -28,6 +28,20 @@ public class UserService {
         userRepository.save(userModel);
     }
 
+    public UserModel lookup(String username) {
+        System.out.println("In userService.lookup, attempting to lookup username: " + username.toUpperCase());
+        List<UserModel> user = this.userRepository.findByUsername(username.toUpperCase());
+
+        if (!user.isEmpty()) {
+            System.out.println("In userService.lookup, found user: " + user.get(0).getUsername());
+            return user.get(0);
+        } else {
+            System.out.println("In userService.lookup, user was null");
+        }
+
+        return null;
+    }
+
     public UserDetailsDTO getUserDetails(String username) {
         Object[] results = userRepository.getUserDetails(username).get(0);
 
