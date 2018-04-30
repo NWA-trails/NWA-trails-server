@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pointofinterest/**").hasRole("ADMIN")
                 .antMatchers("/trailcondition/add").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/trailcondition/**").hasRole("ADMIN")
-                .antMatchers("/user/register").permitAll()
+                .antMatchers("/user/login").permitAll()
                 .antMatchers("/user/validate").permitAll()
                 .antMatchers("/user/makeAdminById").hasRole("ADMIN")
                 .antMatchers("/user/revokeAdminById").hasRole("ADMIN")
