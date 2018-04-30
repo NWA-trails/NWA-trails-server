@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .httpBasic()
                         .and()
                 .authorizeRequests()
+                /*
                 .antMatchers("/pointofinterest/add").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/pointofinterest/**").hasRole("ADMIN")
                 .antMatchers("/trailcondition/add").hasAnyRole("USER", "ADMIN")
@@ -46,7 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/makeAdminById").hasRole("ADMIN")
                 .antMatchers("/user/revokeAdminById").hasRole("ADMIN")
                 .antMatchers("/user/deleteById").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                */
+                .anyRequest().permitAll()
                     .and()
                 .apply(new JWTConfigurer(this.tokenProvider));
 

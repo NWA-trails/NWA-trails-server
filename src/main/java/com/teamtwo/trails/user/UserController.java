@@ -60,7 +60,7 @@ public class UserController {
         }
     }
 
-    /*
+    
     @RequestMapping(value = "/register", method= RequestMethod.POST)
     public ResponseEntity<String> register( @RequestBody UserModel userModel ) {
         userService.register(userModel);
@@ -76,7 +76,7 @@ public class UserController {
         }
     }
 
-    */
+
 
     @RequestMapping(value = "/getUserDetails/{username}", method = RequestMethod.GET)
     public ResponseEntity<UserDetailsDTO> getUserDetails(@PathVariable String username) {
