@@ -17,7 +17,8 @@ public class ProfilePictureService {
         ProfilePictureModel profilePicture = profilePictureRepository.findByUsername(username);
 
         if (profilePicture != null) {
-            return new String(Base64.getDecoder().decode(profilePicture.getImage()));
+            String image = new String(Base64.getDecoder().decode(profilePicture.getImage()));
+            return new String("{\"image\": \"" + image + "\"}");
         } else {
             return "{\"image\": \"\"}";
         }
